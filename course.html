@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣世界博覽會：領導與團隊實戰模擬 - 課程執行摘要</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* 強制使用微軟正黑體 */
+        body, h1, h2, h3, h4, p, span, div, li, a, button, strong, em {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif !important;
+        }
+        
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 380px;
+            max-height: 450px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+
+        .concept-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .concept-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* NEW CARD SYSTEM STYLING - Stack Effects */
+        .card-base {
+            position: relative;
+            background-color: white;
+            border-radius: 8px;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Simulating a thick stack of cards */
+        .stack-thick {
+            box-shadow: 
+                2px 2px 0 #cbd5e1,
+                4px 4px 0 #cbd5e1,
+                6px 6px 0 #cbd5e1,
+                8px 8px 0 #cbd5e1; /* 4 layers */
+            transform: translate(-4px, -4px);
+        }
+        .stack-thick:hover {
+            transform: translate(-4px, -10px);
+        }
+
+        /* Simulating a medium stack */
+        .stack-medium {
+            box-shadow: 
+                2px 2px 0 #bfdbfe,
+                4px 4px 0 #bfdbfe; /* 2 layers */
+            transform: translate(-2px, -2px);
+        }
+        .stack-medium:hover {
+            transform: translate(-2px, -8px);
+        }
+
+        /* Simulating a small stack/single card */
+        .stack-thin {
+            box-shadow: 2px 2px 0 #fed7aa;
+        }
+        .stack-thin:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Rare Card Effect */
+        .card-rare {
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 4px;
+        }
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .card-desc {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-align: center;
+            margin-top: 4px;
+        }
+        .rarity-tag {
+            position: absolute;
+            top: -10px;
+            background: #1e293b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* City Grid System Styling */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px; /* 增加間距 */
+            width: 100%;
+            height: 100%;
+            padding: 12px;
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            border: 2px dashed #94a3b8;
+        }
+        
+        /* CSS Flags Base */
+        .flag {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+            background-color: #eee; /* Fallback */
+        }
+        .flag:hover {
+            transform: scale(1.15);
+            z-index: 20;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        /* Flag Designs using Gradients */
+        /* 1. Taiwan (Simplified): Red field, Blue canton, White sun */
+        .flag-tw {
+            background-color: #FE0000;
+            background-image: 
+                radial-gradient(circle, white 20%, transparent 22%), /* Sun */
+                linear-gradient(#000095 100%, transparent 0); /* Blue Canton base */
+            background-size: 25% 25%, 50% 50%;
+            background-position: 12% 12%, top left;
+            background-repeat: no-repeat;
+        }
+        
+        /* 2. Japan: White with Red Circle */
+        .flag-jp {
+            background: radial-gradient(circle, #bc002d 35%, white 36%);
+        }
+
+        /* 3. France: Blue/White/Red Vertical */
+        .flag-fr {
+            background: linear-gradient(to right, #0055A4 33%, #FFFFFF 33%, #FFFFFF 66%, #EF4135 66%);
+        }
+
+        /* 4. Germany: Black/Red/Gold Horizontal */
+        .flag-de {
+            background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%);
+        }
+
+        /* 5. Italy: Green/White/Red Vertical */
+        .flag-it {
+            background: linear-gradient(to right, #009246 33%, #FFFFFF 33%, #FFFFFF 66%, #CE2B37 66%);
+        }
+
+        /* 6. Ukraine: Blue/Yellow Horizontal */
+        .flag-ua {
+            background: linear-gradient(to bottom, #0057B8 50%, #FFD700 50%);
+        }
+
+        /* 7. Sweden: Blue with Yellow Cross */
+        .flag-se {
+            background: 
+                linear-gradient(90deg, transparent 28%, #FECC00 28%, #FECC00 42%, transparent 42%),
+                linear-gradient(#006AA7 40%, #FECC00 40%, #FECC00 60%, #006AA7 60%);
+        }
+
+        /* 8. Switzerland: Red with White Cross */
+        .flag-ch {
+            background-color: #D52B1E;
+            background-image: 
+                linear-gradient(90deg, transparent 40%, white 40%, white 60%, transparent 60%),
+                linear-gradient(transparent 40%, white 40%, white 60%, transparent 60%);
+            background-size: 60% 60%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 9. Finland: White with Blue Cross */
+        .flag-fi {
+            background: 
+                linear-gradient(90deg, transparent 28%, #003580 28%, #003580 42%, transparent 42%),
+                linear-gradient(white 40%, #003580 40%, #003580 60%, white 60%);
+        }
+
+        /* 10. Indonesia: Red/White Horizontal */
+        .flag-id {
+            background: linear-gradient(to bottom, #FF0000 50%, #FFFFFF 50%);
+        }
+
+        /* 11. Thailand: Red/White/Blue/White/Red */
+        .flag-th {
+            background: linear-gradient(to bottom, #A51931 16%, #F4F5F8 16%, #F4F5F8 33%, #2D2A4A 33%, #2D2A4A 67%, #F4F5F8 67%, #F4F5F8 84%, #A51931 84%);
+        }
+
+        /* 12. Brazil: Green, Yellow Diamond, Blue Circle */
+        .flag-br {
+            background-color: #009c3b;
+            background-image: 
+                radial-gradient(circle, #002776 20%, transparent 21%),
+                linear-gradient(45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%),
+                linear-gradient(-45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%);
+            /* Simplified diamond using gradients is tricky, using radial approximation for circle inside a yellow box roughly */
+            /* Better approx for CSS only diamond: */
+            background: 
+                radial-gradient(circle, #002776 18%, transparent 19%),
+                linear-gradient(135deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%),
+                linear-gradient(45deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%);
+            background-color: #009c3b;
+            background-blend-mode: normal;
+        }
+
+        /* 13. UAE: Red vertical, Green/White/Black horizontal */
+        .flag-ae {
+            background: 
+                linear-gradient(to right, #FF0000 25%, transparent 25%),
+                linear-gradient(to bottom, #00732F 33%, #FFFFFF 33%, #FFFFFF 66%, #000000 66%);
+        }
+
+        /* 14. Austria: Red/White/Red */
+        .flag-at {
+            background: linear-gradient(to bottom, #ED2939 33%, #FFFFFF 33%, #FFFFFF 66%, #ED2939 66%);
+        }
+
+        /* 15. Nigeria: Green/White/Green Vertical */
+        .flag-ng {
+            background: linear-gradient(to right, #008751 33%, #FFFFFF 33%, #FFFFFF 66%, #008751 66%);
+        }
+
+        /* 16. Peru: Red/White/Red Vertical */
+        .flag-pe {
+            background: linear-gradient(to right, #D91023 33%, #FFFFFF 33%, #FFFFFF 66%, #D91023 66%);
+        }
+
+        /* Connector Lines Overlay */
+        .connector-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 25% 25%;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-200 selection:text-orange-900">
+
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 py-20 text-center relative z-10">
+            <span class="inline-block py-2 px-5 rounded-full bg-orange-500 text-white text-base font-bold tracking-wider mb-8 shadow-lg uppercase">EMBA 領導力課程提案</span>
+            <!-- H1加大 -->
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-tight tracking-wide">
+                台灣世界博覽會<br>
+                <span class="text-orange-400">領導與團隊實戰模擬</span>
+            </h1>
+            
+            <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
+                <!-- Hero P 加大 -->
+                <p class="text-2xl md:text-3xl font-bold leading-relaxed text-blue-50">
+                    <span class="text-orange-400 text-4xl mr-2">❝</span>
+                    透過 170 分鐘的沉浸式模擬，帶領學員實戰演練組織韌性與跨界整合。
+這不是遊戲，這是真實商業世界的縮影。
+                    <span class="text-orange-400 text-4xl ml-2">❞</span>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-blue-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-blue-600 text-5xl mb-6 font-black">01</div>
+                <!-- H3 加大 -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why Taiwan Expo?<br><span class="text-base text-slate-500">為何是世博？</span></h3>
+                <!-- P 加大至 text-lg -->
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    這是商業縮影的極致隱喻。要在極短時間內，整合跨文化衝突、政治角力與資源壓力。我們不玩遊戲，而是讓學員從「建構實體城市」的過程中，直接看見自己的領導行為。
+                </p>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-orange-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-orange-600 text-5xl mb-6 font-black">02</div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why Now?<br><span class="text-base text-slate-500">為何是現在？</span></h3>
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    AI 時代，SOP 已被取代。人類核心價值在於「在模糊中定義願景」。本課程訓練領導者應對 VUCA/BANI 的非線性挑戰，鍛鍊在混亂中凝聚人心的能力。
+                </p>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-teal-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-teal-600 text-5xl mb-6 font-black">03</div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why Us?<br><span class="text-base text-slate-500">獨特優勢</span></h3>
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    結合 Tuckman 團隊動力學，獨創「天使投資人」即時回饋系統。更透過「國家反轉」機制，精準測試團隊面對挫折的復原力 (Resilience)。
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-16 bg-white p-10 rounded-2xl shadow-lg">
+            <h4 class="text-center text-xl font-bold text-slate-700 mb-8">從「管理」到「領導」的技能權重轉移</h4>
+            <div class="chart-container">
+                <canvas id="leadershipShiftChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 md:px-8 bg-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <!-- H2 加大 -->
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6 border-b-4 border-indigo-600 inline-block pb-3">三階段課程流程總覽</h2>
+                <!-- Intro P 加大 -->
+                <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto font-bold">
+                            <span class="text-orange-400 text-4xl mr-2">❝</span>
+                    3小時高壓模擬 × 經歷完整團隊週期 × 驗證真實領導力
+                    <span class="text-orange-400 text-4xl ml-2">❞</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-slate-300 -translate-y-1/2 z-0 rounded-full"></div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-blue-500 relative z-10 flex flex-col h-full">
+                    <div class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">1</div>
+                    <!-- H3 加大 -->
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-blue-800">第一階段：<BR>願景與共同語言<br><span class="text-base font-normal text-slate-500">(Formation)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <!-- 內文加大 -->
+                        <p class="text-base font-bold text-slate-700 bg-blue-50 p-3 rounded">任務：願景宣言、團隊契約</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：模糊情境下的共識建立</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-orange-500 relative z-10 flex flex-col h-full mt-10 md:mt-0">
+                    <div class="bg-orange-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">2</div>
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-orange-800">第二階段：<BR>國家反轉 × 天使投資<br><span class="text-base font-normal text-slate-500">(Storming/Norming)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <p class="text-base font-bold text-slate-700 bg-orange-50 p-3 rounded">任務：國家反轉、爭取天使資源</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：情緒韌性、決策果斷度</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-teal-500 relative z-10 flex flex-col h-full mt-10 md:mt-0">
+                    <div class="bg-teal-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">3</div>
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-teal-800">第三階段：<BR>模型實作與城市整合<br><span class="text-base font-normal text-slate-500">(Performing)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <p class="text-base font-bold text-slate-700 bg-teal-50 p-3 rounded">任務：展館模型、跨組城市整合</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：執行力、系統思考、競合談判</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+                    <div class="lg:col-span-1">
+                        <h3 class="text-3xl font-bold mb-5 text-slate-800">經歷完整的團隊週期</h3>
+                        <p class="text-lg text-slate-600 mb-5 font-bold text-justify leading-relaxed">
+                            課程刻意設計了「國家反轉」的衝擊，製造團隊的<span class="text-orange-600">風暴期 (Storming)</span>。學員必須在情緒低谷中重組，才能邁向高效能的表現期。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="chart-container">
+                            <canvas id="teamJourneyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 md:px-8 bg-blue-50 border-y border-blue-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-slate-800 mb-10 text-center text-blue-900">從願景到實踐：看得見的領導力</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+                <div class="flex flex-col">
+                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-full">
+                        <div class="absolute top-6 left-6 bg-blue-600/90 backdrop-blur text-white text-base px-4 py-2 rounded shadow-lg z-10 font-bold tracking-wide">
+                            課程願景：世界城市系統觀
+                        </div>
+                        <img src="https://previews.dropbox.com/p/thumb/AC0KgCJelrisKWph7Fmf9eWVMn2MZr4Ei1RzH6TWnKDyUlAQn8IMxXgy6GGlOnP5oGDeYbWFPZd3bjQnIzwI0wJgCNJjUsBTBB-kvAVY3fxDcZVoaaWN0fybB82dnZQw994QA8g5oh51nB4zNBKkhseV3-CjAQ9mMsLY-0oAXoS-tHl5ZXKWG0Y80ZT_2peqEyRt8SOHXku2YwYhi-nLMh4UaCpjpX6h1bw59iCV8V0cDeOt82L20pzixdElEtI6nhZmZ_6qy3Rnt6-SKUlOlTpNzybSWgEYZr4yD0dJKUtFAoNtppZqLFd0sL-VZOlD9SLpTfxHKHth6SYg2wW-wxYJ0HkXS_6KJz4L2PeBzZH0QtHoYKfojvTz0dNe6s3F697uZ2sP710kMnMPfDM6P2xm/p.png?is_prewarmed=true" alt="Expo City Concept Model" class="concept-image w-full h-80 md:h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16">
+                            <p class="text-white font-bold text-2xl mb-2">從單組競爭走向跨界共好</p>
+                            <p class="text-slate-200 text-lg">從 16 組團隊共構一座世界城市，練習系統思考。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-full">
+                        <div class="absolute top-6 left-6 bg-orange-500/90 backdrop-blur text-white text-base px-4 py-2 rounded shadow-lg z-10 font-bold tracking-wide">
+                            實戰現場：跨組整合與談判
+                        </div>
+                        <img src="https://previews.dropbox.com/p/thumb/AC23N92oVw3vyAI2pPZCGtEo2GwSxnk_ghmthfKz_cJLofjjdFZflvM2UfxMBru1Q8qeQK6urqObgf8MUJM-i6lI491-qn00yMoXAK5peppUrNrSUPW4LJFN08jGVkKq6cLQAO8k8cga0c9TXw1CukoAnddTQMVyHvjPoiXEhL7K36B9CJABl29CjPRkX8vP3-yoVSNO6IGJwgBMSkcPhNiHVF88gLfpfwO8DSfSjvI9uUxYtoj0ahMoMWTc7eKkDXg30DAaOFQBTbAITKHwLS4wavR4FcQRTK7jtZpgPk7xlePpgd5Uz1aK8pVy6bnc7GMoSmED5q8l564sGvP6ShL50aymYSf4SW5ySF-fGq4Okodng9RZHXTJsV1bMAL3BwxhGEkGMbNd1_oIgJXLqb8k/p.png?is_prewarmed=true" alt="Students building model" class="concept-image w-full h-80 md:h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16">
+                            <p class="text-white font-bold text-2xl mb-2">模擬真實商業的資源壓力</p>
+                            <p class="text-slate-200 text-lg">不指定組長，讓領導在混亂與談判中自然浮現。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-sm text-slate-500 mt-6">
+                ※ 圖片呈現：左圖為宏觀願景模擬，右圖為課程實作現場。
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6 border-b-4 border-purple-500 inline-block pb-3">課程三大核心亮點</h2>                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                    在資源不均與變局中淬鍊 <span class="text-orange-400">高階領導決策力</span>
+                </h2>
+            <p class="text-xl text-slate-600 max-w-4xl mx-auto font-bold">
+                我們不看運氣，只看行為。透過精密的機制設計，將抽象的領導力轉化為具體的決策結果。
+            </p>
+        </div>
+
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Highlight 1: Angel Investors (Radar Chart) -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 chart-container mb-6">
+                    <canvas id="angelCriteriaChart"></canvas>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-700 mb-3">1. 天使投資機制</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    反映領導效能的即時鏡像。天使投資人依據「願景清晰度」與「協作氛圍」給予資源，而非看結果美觀度。
+                </p>
+            </div>
+
+            <!-- Highlight 2: Card System (Visual Cards) -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 mb-6 flex flex-col justify-center items-center">
+                    <div class="flex justify-between w-full h-32 px-2 items-end">
+                        <!-- Basic Card Stack -->
+                        <div class="card-base stack-thick bg-slate-50 border-slate-300 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag">50%</div>
+                            <div class="card-icon">📦</div>
+                            <div class="card-title">基礎</div>
+                        </div>
+                        <!-- Premium Card Stack -->
+                        <div class="card-base stack-medium bg-blue-50 border-blue-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-blue-600">30%</div>
+                            <div class="card-icon">💎</div>
+                            <div class="card-title text-blue-800">高階</div>
+                        </div>
+                        <!-- Strategy Card Stack -->
+                        <div class="card-base stack-thin bg-orange-50 border-orange-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-orange-600">15%</div>
+                            <div class="card-icon">🤝</div>
+                            <div class="card-title text-orange-800">策略</div>
+                        </div>
+                        <!-- Special Card -->
+                        <div class="card-base card-rare bg-teal-50 border-teal-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-teal-600">5%</div>
+                            <div class="card-icon">🔑</div>
+                            <div class="card-title text-teal-800">特許</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-orange-600 mb-3">2. 創新教學機制：卡片系統</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    透過基礎、高階、策略與特許四種卡片，將資源不均具象化。團隊必須運用有限手牌進行跨組談判與策略交換。
+                </p>
+            </div>
+
+            <!-- Highlight 3: System View (Flags Grid) -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 mb-6 flex items-center justify-center relative">
+                    <!-- City Grid Visualization with Flags -->
+                    <div class="city-grid relative">
+                        <!-- Overlay Lines to simulate connections -->
+                        <div class="connector-lines"></div>
+                        
+                        <!-- 16 Teams Flags -->
+                        <div class="flag flag-tw" title="台灣 (Taiwan)"></div>
+                        <div class="flag flag-jp" title="日本 (Japan)"></div>
+                        <div class="flag flag-fr" title="法國 (France)"></div>
+                        <div class="flag flag-de" title="德國 (Germany)"></div>
+                        
+                        <div class="flag flag-it" title="義大利 (Italy)"></div>
+                        <div class="flag flag-ch" title="瑞士 (Switzerland)"></div>
+                        <div class="flag flag-se" title="瑞典 (Sweden)"></div>
+                        <div class="flag flag-fi" title="芬蘭 (Finland)"></div>
+                        
+                        <div class="flag flag-ua" title="烏克蘭 (Ukraine)"></div>
+                        <div class="flag flag-id" title="印尼 (Indonesia)"></div>
+                        <div class="flag flag-th" title="泰國 (Thailand)"></div>
+                        <div class="flag flag-br" title="巴西 (Brazil)"></div>
+                        
+                        <div class="flag flag-ae" title="阿聯酋 (UAE)"></div>
+                        <div class="flag flag-at" title="奧地利 (Austria)"></div>
+                        <div class="flag flag-ng" title="奈及利亞 (Nigeria)"></div>
+                        <div class="flag flag-pe" title="秘魯 (Peru)"></div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-blue-800 mb-3">3. 世界城市系統觀</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    從單組競爭走向跨界共好。最終產出不是 16 個獨立展館，而是一座必須彼此連通的城市，考驗系統思考能力。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-800 text-white py-16 border-t border-slate-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-10">準備好挑戰真實的領導力了嗎？</h2>
+            <div class="flex justify-center space-x-16 mb-10">
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-blue-400">3</span>
+                    <span class="text-base text-slate-300">小時實戰</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-orange-400">16</span>
+                    <span class="text-base text-slate-300">組團隊競合</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-teal-400">1</span>
+                    <span class="text-base text-slate-300">座世界城市</span>
+                </div>
+            </div>
+            <p class="text-slate-500 text-base font-bold">
+                國立政治大學 EMBA 領導與團隊課程提案 | 台灣世界博覽會模擬
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 設定 Chart.js 全域字體大小
+        Chart.defaults.font.size = 14;
+        Chart.defaults.font.family = "'Microsoft JhengHei', '微軟正黑體', sans-serif";
+
+        const tooltipCallbackConfig = {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            }
+        };
+
+        const ctxShift = document.getElementById('leadershipShiftChart').getContext('2d');
+        new Chart(ctxShift, {
+            type: 'bar',
+            data: {
+                // 更新 labels，加入 "行為影響力"
+                labels: ['SOP 執行力', '風險控制', '願景定義', '模糊適應力', '跨界整合', '行為影響力'],
+                datasets: [
+                    {
+                        label: '傳統管理需求 (2010)',
+                        // 加入對應的傳統數據 (50)
+                        data: [90, 85, 40, 30, 40, 50],
+                        backgroundColor: 'rgba(148, 163, 184, 0.5)', 
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '未來領導需求 (2025+)',
+                        // 加入對應的未來數據 (95)
+                        data: [30, 40, 95, 90, 85, 95],
+                        backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 14 } } },
+                    tooltip: { callbacks: tooltipCallbackConfig, bodyFont: { size: 14 }, titleFont: { size: 16 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100, title: { display: true, text: '重要性權重 (%)', font: { size: 16, weight: 'bold' } }, ticks: { font: { size: 14 } } },
+                    x: { ticks: { font: { size: 14, weight: 'bold' } } }
+                }
+            }
+        });
+
+        const ctxJourney = document.getElementById('teamJourneyChart').getContext('2d');
+        new Chart(ctxJourney, {
+            type: 'line',
+            data: {
+                labels: ['啟動 (0m)', '願景形成 (30m)', '國家反轉 (45m)', '團隊重組 (90m)', '最終成果 (150m)'],
+                datasets: [{
+                    label: '團隊績效與清晰度',
+                    data: [20, 60, 15, 50, 95],
+                    borderColor: '#F97316',
+                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#F97316',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { 
+                        callbacks: tooltipCallbackConfig,
+                        mode: 'index',
+                        intersect: false,
+                        bodyFont: { size: 14 },
+                        titleFont: { size: 16 }
+                    }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100,
+                        title: { display: true, text: '心理安全感 / 績效', font: { size: 16, weight: 'bold' } },
+                        grid: { borderDash: [5, 5] },
+                        ticks: { font: { size: 14 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 14, weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+
+        const ctxAngel = document.getElementById('angelCriteriaChart').getContext('2d');
+        // 建立漸層背景
+        let gradientAngel = ctxAngel.createRadialGradient(250, 250, 0, 250, 250, 200);
+        gradientAngel.addColorStop(0, 'rgba(124, 58, 237, 0.5)'); // Deep purple center
+        gradientAngel.addColorStop(1, 'rgba(124, 58, 237, 0.1)'); // Fading out
+
+        new Chart(ctxAngel, {
+            type: 'radar',
+            data: {
+                labels: ['願景清晰', '協作氛圍', '決策果斷', '挫折復原', '系統思考'],
+                datasets: [
+                    {
+                        label: '獲投團隊 (High Perf.)',
+                        data: [90, 85, 85, 95, 90],
+                        fill: true,
+                        backgroundColor: 'rgba(124, 58, 237, 0.4)', // Slightly transparent purple
+                        borderColor: '#7C3AED',
+                        pointBackgroundColor: '#7C3AED',
+                        pointBorderColor: '#fff',
+                        pointRadius: 5
+                    },
+                    {
+                        label: '一般團隊 (Average)',
+                        data: [60, 50, 40, 45, 50], // Lower scores showing gaps
+                        fill: true,
+                        backgroundColor: 'rgba(148, 163, 184, 0.2)', // Grayish
+                        borderColor: '#94A3B8',
+                        pointBackgroundColor: '#94A3B8',
+                        pointBorderColor: '#fff',
+                        pointRadius: 4,
+                        borderDash: [5, 5]
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'bottom', labels: { font: { size: 12 } } }, // Show legend
+                    tooltip: { callbacks: tooltipCallbackConfig, bodyFont: { size: 14 }, titleFont: { size: 16 } }
+                },
+                scales: {
+                    r: {
+                        angleLines: { display: true, color: 'rgba(0,0,0,0.1)' },
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        pointLabels: { font: { size: 16, weight: 'bold' }, color: '#4B5563' },
+                        ticks: { display: false, backdropColor: 'transparent' } // Hide tick backdrop
+                    }
+                }
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>
