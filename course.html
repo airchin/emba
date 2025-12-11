@@ -55,39 +55,29 @@
             transition: transform 0.3s ease;
         }
         
-        /* Simulating a thick stack of cards */
         .stack-thick {
             box-shadow: 
                 2px 2px 0 #cbd5e1,
                 4px 4px 0 #cbd5e1,
                 6px 6px 0 #cbd5e1,
-                8px 8px 0 #cbd5e1; /* 4 layers */
+                8px 8px 0 #cbd5e1;
             transform: translate(-4px, -4px);
         }
-        .stack-thick:hover {
-            transform: translate(-4px, -10px);
-        }
+        .stack-thick:hover { transform: translate(-4px, -10px); }
 
-        /* Simulating a medium stack */
         .stack-medium {
             box-shadow: 
                 2px 2px 0 #bfdbfe,
-                4px 4px 0 #bfdbfe; /* 2 layers */
+                4px 4px 0 #bfdbfe;
             transform: translate(-2px, -2px);
         }
-        .stack-medium:hover {
-            transform: translate(-2px, -8px);
-        }
+        .stack-medium:hover { transform: translate(-2px, -8px); }
 
-        /* Simulating a small stack/single card */
         .stack-thin {
             box-shadow: 2px 2px 0 #fed7aa;
         }
-        .stack-thin:hover {
-            transform: translateY(-5px);
-        }
+        .stack-thin:hover { transform: translateY(-5px); }
 
-        /* Rare Card Effect */
         .card-rare {
             box-shadow: 0 0 15px rgba(45, 212, 191, 0.4);
             animation: float 3s ease-in-out infinite;
@@ -109,12 +99,6 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        .card-desc {
-            font-size: 0.75rem;
-            color: #64748b;
-            text-align: center;
-            margin-top: 4px;
-        }
         .rarity-tag {
             position: absolute;
             top: -10px;
@@ -131,7 +115,7 @@
         .city-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px; /* 增加間距 */
+            gap: 8px;
             width: 100%;
             height: 100%;
             padding: 12px;
@@ -140,7 +124,6 @@
             border: 2px dashed #94a3b8;
         }
         
-        /* CSS Flags Base */
         .flag {
             width: 100%;
             height: 100%;
@@ -150,7 +133,7 @@
             overflow: hidden;
             transition: transform 0.2s;
             cursor: pointer;
-            background-color: #eee; /* Fallback */
+            background-color: #eee;
         }
         .flag:hover {
             transform: scale(1.15);
@@ -159,157 +142,47 @@
             border: 2px solid white;
         }
 
-        /* Flag Designs using Gradients */
-        /* 1. Taiwan (Simplified): Red field, Blue canton, White sun */
-        .flag-tw {
-            background-color: #FE0000;
-            background-image: 
-                radial-gradient(circle, white 20%, transparent 22%), /* Sun */
-                linear-gradient(#000095 100%, transparent 0); /* Blue Canton base */
-            background-size: 25% 25%, 50% 50%;
-            background-position: 12% 12%, top left;
-            background-repeat: no-repeat;
-        }
-        
-        /* 2. Japan: White with Red Circle */
-        .flag-jp {
-            background: radial-gradient(circle, #bc002d 35%, white 36%);
-        }
+        /* Flag Designs */
+        .flag-tw { background-color: #FE0000; background-image: radial-gradient(circle, white 20%, transparent 22%), linear-gradient(#000095 100%, transparent 0); background-size: 25% 25%, 50% 50%; background-position: 12% 12%, top left; background-repeat: no-repeat; }
+        .flag-jp { background: radial-gradient(circle, #bc002d 35%, white 36%); }
+        .flag-fr { background: linear-gradient(to right, #0055A4 33%, #FFFFFF 33%, #FFFFFF 66%, #EF4135 66%); }
+        .flag-de { background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); }
+        .flag-it { background: linear-gradient(to right, #009246 33%, #FFFFFF 33%, #FFFFFF 66%, #CE2B37 66%); }
+        .flag-ua { background: linear-gradient(to bottom, #0057B8 50%, #FFD700 50%); }
+        .flag-se { background: linear-gradient(90deg, transparent 28%, #FECC00 28%, #FECC00 42%, transparent 42%), linear-gradient(#006AA7 40%, #FECC00 40%, #FECC00 60%, #006AA7 60%); }
+        .flag-ch { background-color: #D52B1E; background-image: linear-gradient(90deg, transparent 40%, white 40%, white 60%, transparent 60%), linear-gradient(transparent 40%, white 40%, white 60%, transparent 60%); background-size: 60% 60%; background-position: center; background-repeat: no-repeat; }
+        .flag-fi { background: linear-gradient(90deg, transparent 28%, #003580 28%, #003580 42%, transparent 42%), linear-gradient(white 40%, #003580 40%, #003580 60%, white 60%); }
+        .flag-id { background: linear-gradient(to bottom, #FF0000 50%, #FFFFFF 50%); }
+        .flag-th { background: linear-gradient(to bottom, #A51931 16%, #F4F5F8 16%, #F4F5F8 33%, #2D2A4A 33%, #2D2A4A 67%, #F4F5F8 67%, #F4F5F8 84%, #A51931 84%); }
+        .flag-br { background-color: #009c3b; background-image: radial-gradient(circle, #002776 20%, transparent 21%), linear-gradient(45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%); background: radial-gradient(circle, #002776 18%, transparent 19%), linear-gradient(135deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%), linear-gradient(45deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%); background-color: #009c3b; background-blend-mode: normal; }
+        .flag-ae { background: linear-gradient(to right, #FF0000 25%, transparent 25%), linear-gradient(to bottom, #00732F 33%, #FFFFFF 33%, #FFFFFF 66%, #000000 66%); }
+        .flag-at { background: linear-gradient(to bottom, #ED2939 33%, #FFFFFF 33%, #FFFFFF 66%, #ED2939 66%); }
+        .flag-ng { background: linear-gradient(to right, #008751 33%, #FFFFFF 33%, #FFFFFF 66%, #008751 66%); }
+        .flag-pe { background: linear-gradient(to right, #D91023 33%, #FFFFFF 33%, #FFFFFF 66%, #D91023 66%); }
 
-        /* 3. France: Blue/White/Red Vertical */
-        .flag-fr {
-            background: linear-gradient(to right, #0055A4 33%, #FFFFFF 33%, #FFFFFF 66%, #EF4135 66%);
-        }
-
-        /* 4. Germany: Black/Red/Gold Horizontal */
-        .flag-de {
-            background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%);
-        }
-
-        /* 5. Italy: Green/White/Red Vertical */
-        .flag-it {
-            background: linear-gradient(to right, #009246 33%, #FFFFFF 33%, #FFFFFF 66%, #CE2B37 66%);
-        }
-
-        /* 6. Ukraine: Blue/Yellow Horizontal */
-        .flag-ua {
-            background: linear-gradient(to bottom, #0057B8 50%, #FFD700 50%);
-        }
-
-        /* 7. Sweden: Blue with Yellow Cross */
-        .flag-se {
-            background: 
-                linear-gradient(90deg, transparent 28%, #FECC00 28%, #FECC00 42%, transparent 42%),
-                linear-gradient(#006AA7 40%, #FECC00 40%, #FECC00 60%, #006AA7 60%);
-        }
-
-        /* 8. Switzerland: Red with White Cross */
-        .flag-ch {
-            background-color: #D52B1E;
-            background-image: 
-                linear-gradient(90deg, transparent 40%, white 40%, white 60%, transparent 60%),
-                linear-gradient(transparent 40%, white 40%, white 60%, transparent 60%);
-            background-size: 60% 60%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* 9. Finland: White with Blue Cross */
-        .flag-fi {
-            background: 
-                linear-gradient(90deg, transparent 28%, #003580 28%, #003580 42%, transparent 42%),
-                linear-gradient(white 40%, #003580 40%, #003580 60%, white 60%);
-        }
-
-        /* 10. Indonesia: Red/White Horizontal */
-        .flag-id {
-            background: linear-gradient(to bottom, #FF0000 50%, #FFFFFF 50%);
-        }
-
-        /* 11. Thailand: Red/White/Blue/White/Red */
-        .flag-th {
-            background: linear-gradient(to bottom, #A51931 16%, #F4F5F8 16%, #F4F5F8 33%, #2D2A4A 33%, #2D2A4A 67%, #F4F5F8 67%, #F4F5F8 84%, #A51931 84%);
-        }
-
-        /* 12. Brazil: Green, Yellow Diamond, Blue Circle */
-        .flag-br {
-            background-color: #009c3b;
-            background-image: 
-                radial-gradient(circle, #002776 20%, transparent 21%),
-                linear-gradient(45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%);
-            /* Simplified diamond using gradients is tricky, using radial approximation for circle inside a yellow box roughly */
-            /* Better approx for CSS only diamond: */
-            background: 
-                radial-gradient(circle, #002776 18%, transparent 19%),
-                linear-gradient(135deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%),
-                linear-gradient(45deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%);
-            background-color: #009c3b;
-            background-blend-mode: normal;
-        }
-
-        /* 13. UAE: Red vertical, Green/White/Black horizontal */
-        .flag-ae {
-            background: 
-                linear-gradient(to right, #FF0000 25%, transparent 25%),
-                linear-gradient(to bottom, #00732F 33%, #FFFFFF 33%, #FFFFFF 66%, #000000 66%);
-        }
-
-        /* 14. Austria: Red/White/Red */
-        .flag-at {
-            background: linear-gradient(to bottom, #ED2939 33%, #FFFFFF 33%, #FFFFFF 66%, #ED2939 66%);
-        }
-
-        /* 15. Nigeria: Green/White/Green Vertical */
-        .flag-ng {
-            background: linear-gradient(to right, #008751 33%, #FFFFFF 33%, #FFFFFF 66%, #008751 66%);
-        }
-
-        /* 16. Peru: Red/White/Red Vertical */
-        .flag-pe {
-            background: linear-gradient(to right, #D91023 33%, #FFFFFF 33%, #FFFFFF 66%, #D91023 66%);
-        }
-
-        /* Connector Lines Overlay */
         .connector-lines {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: 
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
-            background-size: 25% 25%;
-            z-index: 5;
+            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 25% 25%; z-index: 5;
+        }
+
+        /* 2026+ Competency Card Styles */
+        .comp-card {
+            background: white;
+            border-left: 5px solid;
+            padding: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .comp-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-orange-200 selection:text-orange-900">
-
-    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 py-20 text-center relative z-10">
-            <span class="inline-block py-2 px-5 rounded-full bg-orange-500 text-white text-base font-bold tracking-wider mb-8 shadow-lg uppercase">EMBA 領導力課程提案</span>
-            <!-- H1加大 -->
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-tight tracking-wide">
-                台灣世界博覽會<br>
-                <span class="text-orange-400">領導與團隊實戰模擬</span>
-            </h1>
-            
-            <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
-                <!-- Hero P 加大 -->
-                <p class="text-2xl md:text-3xl font-bold leading-relaxed text-blue-50">
-                    <span class="text-orange-400 text-4xl mr-2">❝</span>
-                    透過 170 分鐘的沉浸式模擬，帶領學員實戰演練組織韌性與跨界整合。
-這不是遊戲，這是真實商業世界的縮影。
-                    <span class="text-orange-400 text-4xl ml-2">❞</span>
-                </p>
-            </div>
-        </div>
-    </header>
 
     <section class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -340,10 +213,66 @@
             </div>
         </div>
 
-        <div class="mt-16 bg-white p-10 rounded-2xl shadow-lg">
-            <h4 class="text-center text-xl font-bold text-slate-700 mb-8">從「管理」到「領導」的技能權重轉移</h4>
-            <div class="chart-container">
-                <canvas id="leadershipShiftChart"></canvas>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Left: Traditional vs Future Shift (Reverted to Bar Chart) -->
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <h4 class="text-center text-xl font-bold text-slate-700 mb-8">從「管理」到「領導」的技能權重轉移</h4>
+                <div class="chart-container">
+                    <canvas id="leadershipShiftChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Right: 2026+ Skills (New Competency Cards / 職能圖) -->
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <h4 class="text-center text-xl font-bold text-slate-700 mb-8">2026+ 關鍵領導力職能地圖</h4>
+                <div class="flex flex-col space-y-4 h-full justify-center pb-4">
+                    
+                    <!-- Skill 1: AI Symbiosis -->
+                    <div class="comp-card border-blue-500">
+                        <div class="text-3xl mr-4">🤖</div>
+                        <div>
+                            <h5 class="font-bold text-lg text-slate-800">AI 人機協作 (AI Symbiosis)</h5>
+                            <p class="text-sm text-slate-500">不只是使用工具，而是領導 AI 團隊進行決策。</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Resilience -->
+                    <div class="comp-card border-orange-500">
+                        <div class="text-3xl mr-4">❤️‍🔥</div>
+                        <div>
+                            <h5 class="font-bold text-lg text-slate-800">情緒韌性 (Resilience)</h5>
+                            <p class="text-sm text-slate-500">在國家反轉與資源匱乏中，展現快速復原力。</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: System Thinking -->
+                    <div class="comp-card border-indigo-500">
+                        <div class="text-3xl mr-4">🌐</div>
+                        <div>
+                            <h5 class="font-bold text-lg text-slate-800">跨界系統思考 (System Thinking)</h5>
+                            <p class="text-sm text-slate-500">跳出單組本位，看見「世界城市」的整體局。</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Ethical Decision -->
+                    <div class="comp-card border-emerald-500">
+                        <div class="text-3xl mr-4">⚖️</div>
+                        <div>
+                            <h5 class="font-bold text-lg text-slate-800">道德決策 (Ethical Decision)</h5>
+                            <p class="text-sm text-slate-500">在利益衝突與規則模糊地帶，堅守價值底線。</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5: ESG Mindset -->
+                    <div class="comp-card border-teal-500">
+                        <div class="text-3xl mr-4">🌱</div>
+                        <div>
+                            <h5 class="font-bold text-lg text-slate-800">永續思維 (ESG Mindset)</h5>
+                            <p class="text-sm text-slate-500">在有限資源下，創造長遠且共好的解決方案。</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -587,16 +516,15 @@
             }
         };
 
+// --- Chart 1: Leadership Shift (Left Side - Bar Chart) ---
         const ctxShift = document.getElementById('leadershipShiftChart').getContext('2d');
         new Chart(ctxShift, {
-            type: 'bar',
+            type: 'bar', // Reverted to BAR chart
             data: {
-                // 更新 labels，加入 "行為影響力"
                 labels: ['SOP 執行力', '風險控制', '願景定義', '模糊適應力', '跨界整合', '行為影響力'],
                 datasets: [
                     {
                         label: '傳統管理需求 (2010)',
-                        // 加入對應的傳統數據 (50)
                         data: [90, 85, 40, 30, 40, 50],
                         backgroundColor: 'rgba(148, 163, 184, 0.5)', 
                         borderColor: 'rgba(148, 163, 184, 1)',
@@ -604,7 +532,6 @@
                     },
                     {
                         label: '未來領導需求 (2025+)',
-                        // 加入對應的未來數據 (95)
                         data: [30, 40, 95, 90, 85, 95],
                         backgroundColor: 'rgba(37, 99, 235, 0.8)',
                         borderColor: 'rgba(37, 99, 235, 1)',
