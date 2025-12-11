@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>打造我們的世界博覽會｜政大 EMBA《領導與團隊》</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-alt: #ffffff;
+      --accent: #f97316;    /* 橘色：陽光、活力 */
+      --accent-strong: #ea580c;
+      --accent-soft: #ffedd5;
+      --accent-blue: #2563eb;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --card-bg: #ffffff;
+      --border-soft: #e5e7eb;
+      --shadow-soft: 0 12px 30px rgba(15,23,42,0.12);
+      --radius-xl: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+        "PingFang TC", "Noto Sans TC", sans-serif;
+      background: radial-gradient(circle at top, #fffbeb 0, #f9fafb 50%, #eef2ff 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    /* NAV */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(209,213,219,0.8);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 180deg,
+        #f97316,
+        #facc15,
+        #22c55e,
+        #38bdf8,
+        #f97316
+      );
+      padding: 2px;
+      box-shadow: 0 0 16px rgba(248, 175, 64, 0.7);
+    }
+
+    .logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #f97316;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: all 0.15s ease-out;
+    }
+
+    .nav-links a:hover {
+      background: #fffbeb;
+      color: var(--accent-strong);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
+      gap: 36px;
+      align-items: center;
+      padding: 40px 0 28px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fffbeb;
+      border: 1px solid #fed7aa;
+      font-size: 12px;
+      color: #9a3412;
+    }
+
+    .hero-tag span {
+      font-weight: 600;
+      color: #ea580c;
+    }
+
+    .hero-heading {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      margin: 14px 0 10px;
+    }
+
+    .hero-heading span.highlight {
+      color: var(--accent-strong);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: var(--text-sub);
+      max-width: 36rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: var(--text-sub);
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(148,163,184,0.35);
+    }
+
+    .pill strong {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #fbbf24, #f97316);
+      color: #1f2933;
+      box-shadow: 0 12px 24px rgba(248, 181, 45, 0.7);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(248, 181, 45, 0.9);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #d1d5db;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+
+    .btn-ghost:hover {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-illustration {
+      border-radius: 22px;
+      background: radial-gradient(circle at top, #bfdbfe 0, #eff6ff 40%, #fefce8 100%);
+      border: 1px solid #dbeafe;
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+    }
+
+    .hero-illustration img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+
+    .hero-illu-caption {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .hero-illu-caption strong {
+      color: #111827;
+    }
+
+    /* SECTION 通用 */
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title span.icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fffbeb;
+      border: 1px solid #fed7aa;
+      font-size: 16px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      max-width: 380px;
+    }
+
+    .section-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .section-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-header {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .card-tagline {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .card ul li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent-strong);
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      background: #fffbeb;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    /* 城市示意圖卡片 */
+
+    .city-diagram {
+      border-radius: 20px;
+      background: radial-gradient(circle at top, #fee2e2 0, #fef9c3 40%, #eff6ff 100%);
+      border: 1px solid #fecaca;
+      padding: 16px 14px 12px;
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .city-diagram-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .city-diagram img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin: 8px 0 10px;
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 2px solid #9ca3af;
+      background: #ffffff;
+    }
+
+    /* 卡片系統小卡 */
+
+    .card-small {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 12px 12px 10px;
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-small-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card-small-pill {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      align-self: flex-start;
+      color: var(--text-sub);
+      background: #f3f4f6;
+    }
+
+    .bullet-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .bullet-item {
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .bullet-item::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 11px;
+      color: var(--accent-blue);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .footer-pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      font-size: 12px;
+    }
+
+    /* RWD */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .section-grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-inline: 16px;
+      }
+      .nav-inner {
+        padding-inline: 16px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .section-grid-4 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .bullet-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <div class="logo-mark">
+            <div class="logo-inner">TW</div>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#111827;">Taiwan World Expo</div>
+            <div style="font-size:12px;">NCCU EMBA｜領導與團隊課程</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#flow">課程流程</a>
+          <a href="#city">世界博覽會場景</a>
+          <a href="#cards">卡片系統</a>
+          <a href="#angels">天使投資</a>
+          <a href="#learning">學習價值</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="hero-tag">
+            <span>領導與團隊</span>｜世界博覽會實境課程
+          </div>
+          <h1 class="hero-heading">
+		   打造我們的 <span class="highlight">世界博覽會</span>：<br>
+          一堂被看見的<span class="highlight">領導實境課</span>
+          </h1>
+          <p class="hero-subtitle">
+            學員不再只是「聽領導」，而是在高度不確定、跨文化、資源不均的情境裡，
+            被迫一起做選擇、談判、取捨，讓自己的領導樣貌自然浮現。
+          </p>
+
+          <div class="hero-badges">
+            <div class="pill">
+              ⏱ <strong>170 分鐘</strong> 三階段連續任務
+            </div>
+            <div class="pill">
+              🌍 <strong>16 國展館</strong>＋台灣主題館
+            </div>
+            <div class="pill">
+              👥 <strong>200+ EMBA 學員</strong> 同場互動
+            </div>
+            <div class="pill">
+              🎭 <strong>領導被看見，而不是被宣稱</strong>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#learning" class="btn-primary">
+              馬上看課程設計
+              <span>→</span>
+            </a>
+            <a href="#flow" class="btn-ghost">
+              瀏覽三階段流程
+            </a>
+          </div>
+          <div class="hero-note">
+            這堂課的作品是一座城市，但真正的產出，是每位學員的
+            <strong>Leadership Footprint（領導足跡）</strong>。
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-illustration">
+            <!-- Hero 示意圖：之後可換成實際照片 / 3D 渲染 -->
+            <img
+              src="https://previews.dropbox.com/p/thumb/AC0KgCJelrisKWph7Fmf9eWVMn2MZr4Ei1RzH6TWnKDyUlAQn8IMxXgy6GGlOnP5oGDeYbWFPZd3bjQnIzwI0wJgCNJjUsBTBB-kvAVY3fxDcZVoaaWN0fybB82dnZQw994QA8g5oh51nB4zNBKkhseV3-CjAQ9mMsLY-0oAXoS-tHl5ZXKWG0Y80ZT_2peqEyRt8SOHXku2YwYhi-nLMh4UaCpjpX6h1bw59iCV8V0cDeOt82L20pzixdElEtI6nhZmZ_6qy3Rnt6-SKUlOlTpNzybSWgEYZr4yD0dJKUtFAoNtppZqLFd0sL-VZOlD9SLpTfxHKHth6SYg2wW-wxYJ0HkXS_6KJz4L2PeBzZH0QtHoYKfojvTz0dNe6s3F697uZ2sP710kMnMPfDM6P2xm/p.png?is_prewarmed=true"
+              alt="台灣世界博覽會城市模型示意圖"
+            />
+            <div class="hero-illu-caption">
+              <strong>示意圖：</strong>
+              台灣主題館位於中心，周圍由 16 座國家展館環繞。  
+              每一座展館代表一個國家，也代表一組學員的集體決策。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 課程定位＆三大精神 -->
+      <section id="learning" class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">🌞</span>
+            <span>課程定位：Leadership by Doing</span>
+          </div>
+          <div class="section-sub">
+            以「台灣主辦世界博覽會」為主軸，結合願景、制度設計與真實壓力，
+            讓學員在三小時內完成一輪完整的領導與團隊實驗。
+          </div>
+        </div>
+
+        <div class="section-grid-3">
+          <div class="card">
+            <div class="card-header">
+              願景要被看見
+              <span class="tag">Vision Must Be Visible</span>
+            </div>
+            <div class="card-tagline">
+              不是講願景，而是讓願景變成每個人做決定的共同坐標。
+            </div>
+            <ul>
+              <li>以台灣主辦國身分寫出一句話願景</li>
+              <li>決定主辦城市與世博主題</li>
+              <li>畫出 V1.0 世界觀草圖海報</li>
+              <li>所有國家館設計都必須回扣這個願景</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              領導在混亂中浮現
+              <span class="tag">Leadership Emerges from Chaos</span>
+            </div>
+            <div class="card-tagline">
+              不指定組長、不分配頭銜，讓領導行為自然被看見。
+            </div>
+            <ul>
+              <li>抽到的國家不得交換、不得重抽</li>
+              <li>資源不均、卡片干預、天使投資皆為真實壓力</li>
+              <li>在時間與資訊不完整的情況下做出取捨</li>
+              <li>用行為，而不是職稱，定義誰在領導</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              團隊成熟靠協作，而不是指令
+              <span class="tag">Collaboration over Control</span>
+            </div>
+            <div class="card-tagline">
+              16 組各有任務，卻必須共同完成「同一座城市」。
+            </div>
+            <ul>
+              <li>與左右鄰國協調動線、景觀與故事連結</li>
+              <li>黃金一環位置由城市整體評分決定</li>
+              <li>鼓勵跨組協商、資源交換與城市整合</li>
+              <li>最終作品是一座可以被「一眼讀懂」的世界城市</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 三階段流程 -->
+      <section id="flow" class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">🧭</span>
+            <span>三階段流程：170 分鐘走完一輪團隊生命週期</span>
+          </div>
+          <div class="section-sub">
+            對應 Tuckman 模型：Forming → Storming → Norming → Performing，
+            讓學員真正感受到團隊是怎麼成熟的。
+          </div>
+        </div>
+
+        <div class="section-grid-3">
+          <div class="card">
+            <div class="card-header">
+              01｜願景形成（0–40 分）
+              <span class="tag">Forming</span>
+            </div>
+            <div class="card-tagline">
+              從「我們要辦什麼樣的世博？」開始，建立共同語言。
+            </div>
+            <ul>
+              <li>一句話台灣世博願景</li>
+              <li>主辦城市與未來想像</li>
+              <li>5–10 個優先邀請國家</li>
+              <li>V1.0 世界觀草圖海報</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              02｜國家策略 × 展館建構（40–150 分）
+              <span class="tag">Storming → Norming → Performing</span>
+            </div>
+            <div class="card-tagline">
+              抽國家、翻譯文化、做出展館模型，完整經歷衝突與整合。
+            </div>
+            <ul>
+              <li>抽籤決定代表國家（不可交換）</li>
+              <li>撰寫國家館「展館理念卡」</li>
+              <li>以 A3 板搭建立體展館模型</li>
+              <li>導師巡場＋天使投資＋卡片干預</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              03｜城市整合 × 公開發表（150–180 分）
+              <span class="tag">Adjourning</span>
+            </div>
+            <div class="card-tagline">
+              組好城市、上台發表，讓學員看見彼此的領導足跡。
+            </div>
+            <ul>
+              <li>16 國展館＋台灣主題館組成完整城市</li>
+              <li>依評分決定「黃金一環」位置</li>
+              <li>每組 60–90 秒城市發表</li>
+              <li>教授從「行為」而非「美術」做總結與回扣</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 世界博覽會場景＋示意圖 -->
+      <section id="city" class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">🏙</span>
+            <span>世界博覽會場景：一座可以「讀懂」的城市</span>
+          </div>
+          <div class="section-sub">
+            以 A3 × 16 的模組化佈局，讓台灣館成為世界城市的核心，
+            每座展館既是主角，也是整座城市敘事的一部分。
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              台灣主題館：整座城市的心臟
+              <span class="tag">A3 × 2｜城市中心</span>
+            </div>
+            <div class="card-tagline">
+              代表本屆世博願景，是所有展館設計的起點與參照座標。
+            </div>
+            <ul>
+              <li>固定在城市俯視圖正中央</li>
+              <li>象徵台灣對未來文明的想像（如「未來無煙之城」）</li>
+              <li>作為所有國家館主題、故事與動線連結的基準點</li>
+              <li>不必最華麗，但必須最「清楚」表達核心價值</li>
+            </ul>
+            <div class="chips-row">
+              <div class="chip">共同願景載體</div>
+              <div class="chip">城市視覺中心</div>
+              <div class="chip">所有國家館對齊點</div>
+            </div>
+          </div>
+
+          <div class="city-diagram">
+            <div class="city-diagram-title">示意圖：跨組整合與談判</div>
+            <!-- 城市俯視圖示意圖，可換為真正模型照片或插畫 -->
+            <img
+              src="https://previews.dropbox.com/p/thumb/AC23N92oVw3vyAI2pPZCGtEo2GwSxnk_ghmthfKz_cJLofjjdFZflvM2UfxMBru1Q8qeQK6urqObgf8MUJM-i6lI491-qn00yMoXAK5peppUrNrSUPW4LJFN08jGVkKq6cLQAO8k8cga0c9TXw1CukoAnddTQMVyHvjPoiXEhL7K36B9CJABl29CjPRkX8vP3-yoVSNO6IGJwgBMSkcPhNiHVF88gLfpfwO8DSfSjvI9uUxYtoj0ahMoMWTc7eKkDXg30DAaOFQBTbAITKHwLS4wavR4FcQRTK7jtZpgPk7xlePpgd5Uz1aK8pVy6bnc7GMoSmED5q8l564sGvP6ShL50aymYSf4SW5ySF-fGq4Okodng9RZHXTJsV1bMAL3BwxhGEkGMbNd1_oIgJXLqb8k/p.png?is_prewarmed=true"
+              alt="台灣世界博覽會俯視城市佈局示意圖"
+            />
+            <div class="legend-row">
+              <div class="legend-item">
+                <span class="legend-dot" style="border-color:#facc15;"></span>
+                黃金一環｜前 4 名展館，環繞台灣館
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="border-color:#60a5fa;"></span>
+                中環展館｜故事與整合度佳
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="border-color:#9ca3af;"></span>
+                外環展館｜展現文明多樣性與世界廣度
+              </div>
+            </div>
+            <p style="margin-top:8px;">
+              教學重點：不是比誰最漂亮，而是看「整座城市是否說得通」、
+              「台灣館是否真的成為世界的核心」。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 卡片系統＋示意圖 -->
+      <section id="cards" class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">🃏</span>
+            <span>卡片系統：把管理世界濃縮進一疊牌</span>
+          </div>
+          <div class="section-sub">
+            卡片不是遊戲化噱頭，而是刻意設計的「制度干預點」，
+            用來製造不公平、資源差異與翻盤機會，讓領導行為更立體。
+          </div>
+        </div>
+
+        <div class="section-grid-4">
+          <div class="card-small">
+            <div class="card-small-title">A 類｜一般卡</div>
+            <div class="card-small-pill">資源＆效率</div>
+            <div>
+              資源卡、幫手卡、導師支援卡、命運卡。  
+              讓領先組更有效率，也讓他們學會承擔「用好資源」的責任。
+            </div>
+          </div>
+
+          <div class="card-small">
+            <div class="card-small-title">B 類｜特殊卡</div>
+            <div class="card-small-pill">風險＆翻盤</div>
+            <div>
+              天災卡、免疫卡、反轉卡、進階素材卡。  
+              讓落後組仍有機會翻盤，並創造衝突與張力。
+            </div>
+          </div>
+
+          <div class="card-small">
+            <div class="card-small-title">C 類｜極品卡</div>
+            <div class="card-small-pill">投資＆差異化</div>
+            <div>
+              導師投資卡、導師支援加倍卡。  
+              象徵現實世界中少數被「外部資源加持」的團隊。
+            </div>
+          </div>
+
+          <div class="card-small">
+            <div class="card-small-title">F 類｜彩蛋卡</div>
+            <div class="card-small-pill">運氣＆驚喜</div>
+            <div>
+              隱藏助攻卡、隱藏素材卡，藏在材料包裡，  
+              讓「運氣」成為管理討論的一部分，但不主導成敗。
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:13px;color:var(--text-sub);margin-top:10px;">
+          ➤ 每階段每組限用一張同類型卡，由主持人宣告啟動效果。  
+          核心學習：不公平是常態，關鍵在於你如何在制度裡作決策。
+        </p>
+      </section>
+
+      <!-- 天使投資 -->
+      <section id="angels" class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">👼</span>
+            <span>天使投資：練習 90 秒說服決策者</span>
+          </div>
+          <div class="section-sub">
+            三位 Angel 代表三種利害關係人：資源型、執行型、舞台／關係型，
+            在有限時間與名額下做出真實投資決策。
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              募資流程（BRAVE Pitch）
+              <span class="tag">40 分鐘｜兩梯次</span>
+            </div>
+            <ul>
+              <li>各組完成國家館計畫書後進入候選區</li>
+              <li>Angel 靜態閱讀後挑選每梯次最多 5 組上台 Pitch</li>
+              <li>每組 1–2 分鐘：說清國家、故事、亮點與資源需求</li>
+              <li>Angel 當場決定投／不投與投資組合（材料、輔導、時間等）</li>
+              <li>決策不可撤回，未被選上的組別亦必須在資源較少情況下前進</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              學習焦點：不只是「Pitch 好不好聽」
+              <span class="tag">真實管理情境壓縮</span>
+            </div>
+            <div class="bullet-list">
+              <div class="bullet-item">
+                在資訊不完全下做決策：天使也會後悔或錯過好案子。
+              </div>
+              <div class="bullet-item">
+                練習在極短時間內說清「我們是誰、要什麼、為何值得」。
+              </div>
+              <div class="bullet-item">
+                被投資組要學會承擔「期待更高」的壓力，而不是只享受資源。
+              </div>
+              <div class="bullet-item">
+                未被投資組要學會在資源較少時仍維持士氣與創造力。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 可觀察領導行為 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">📊</span>
+            <span>老師與助教可觀察的 10 種關鍵領導行為</span>
+          </div>
+          <div class="section-sub">
+            觀察重點不在誰講最久、做最多，而在誰讓團隊變得更好。
+          </div>
+        </div>
+
+        <div class="bullet-list">
+          <div class="bullet-item">能問出關鍵問題，幫團隊釐清目標與決策方向。</div>
+          <div class="bullet-item">分工清楚、語氣篤定，讓團隊節奏穩定推進。</div>
+          <div class="bullet-item">適時鼓舞士氣，在受挫時把注意力拉回任務。</div>
+          <div class="bullet-item">敢主動與其他組談判、交換資源、協調動線。</div>
+          <div class="bullet-item">用簡潔語言收斂討論，說清楚「我們到底在做什麼」。</div>
+          <div class="bullet-item">敏感察覺時間、材料與風險，及早提醒與調整。</div>
+          <div class="bullet-item">懂得排序優先順序，知道什麼可以先放掉。</div>
+          <div class="bullet-item">接得住不同意見，不急著否定，而是整合。</div>
+          <div class="bullet-item">遇到卡關時，不抱怨，而是提出具體可行方案。</div>
+          <div class="bullet-item">能站在全局視角，看見城市、台灣館與本組之間的關係。</div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div>
+          《看見領導力：打造我們的世界博覽會》｜國立政治大學 EMBA 領導與團隊課程設計案
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <div class="footer-pill">搭配：導師手冊、助教觀察表、Angel 投資指引</div>
+          <div class="footer-pill">評量焦點：行為證據 × 團隊歷程 × 領導覺醒</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
