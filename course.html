@@ -13,12 +13,12 @@
       --accent-soft: #ffedd5;
       --accent-blue: #2563eb;
       --text-main: #111827;
-      --text-sub: #4b5563;  /* 加深副標題顏色以提升對比 */
+      --text-sub: #4b5563;
       --card-bg: #ffffff;
       --border-soft: #e5e7eb;
-      --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08); /* 更柔和但更有深度的陰影 */
+      --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
       --radius-xl: 20px;
-      --max-width: 1200px; /* 加寬版面以容納較大字體 */
+      --max-width: 1200px;
     }
 
     * {
@@ -27,13 +27,18 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
-        "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
       background: radial-gradient(circle at 50% 0%, #fff7ed 0%, #f9fafb 60%, #eff6ff 100%);
       color: var(--text-main);
-      line-height: 1.8; /* 增加全域行高 */
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
-      font-size: 17px; /* 提升基礎字級 */
+      font-size: 17px;
+      scroll-behavior: smooth;
+    }
+
+    /* 鎖定捲動 (當 Modal 開啟時) */
+    body.modal-open {
+      overflow: hidden;
     }
 
     .page {
@@ -71,7 +76,7 @@
     }
 
     .logo-mark {
-      width: 40px; /* 放大 Logo */
+      width: 40px;
       height: 40px;
       border-radius: 999px;
       background: conic-gradient(from 180deg, #f97316, #facc15, #22c55e, #38bdf8, #f97316);
@@ -94,8 +99,8 @@
 
     .nav-links {
       display: flex;
-      gap: 24px; /* 增加連結間距 */
-      font-size: 16px; /* 放大導航字體 */
+      gap: 24px;
+      font-size: 16px;
       font-weight: 500;
     }
 
@@ -122,7 +127,7 @@
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 60px; /* 增加左右間距 */
+      gap: 60px;
       align-items: center;
       padding: 60px 0 40px;
     }
@@ -142,7 +147,7 @@
     }
 
     .hero-heading {
-      font-size: clamp(36px, 5vw, 52px); /* 放大標題 */
+      font-size: clamp(36px, 5vw, 52px);
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin: 0 0 24px;
@@ -158,7 +163,7 @@
 
     .hero-subtitle {
       margin: 0 0 32px;
-      font-size: 19px; /* 放大副標題 */
+      font-size: 19px;
       color: var(--text-sub);
       max-width: 40rem;
       line-height: 1.7;
@@ -175,7 +180,7 @@
       padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid #e5e7eb;
-      font-size: 15px; /* 放大標籤文字 */
+      font-size: 15px;
       color: var(--text-sub);
       background: #ffffff;
       display: inline-flex;
@@ -194,7 +199,7 @@
     .btn-primary,
     .btn-ghost {
       border-radius: 999px;
-      padding: 14px 28px; /* 放大按鈕 */
+      padding: 14px 28px;
       font-size: 16px;
       cursor: pointer;
       border: none;
@@ -261,7 +266,7 @@
 
     /* SECTION 通用 */
     .section {
-      margin-top: 80px; /* 增加區塊間距 */
+      margin-top: 80px;
       scroll-margin-top: 100px;
     }
 
@@ -274,7 +279,7 @@
     }
 
     .section-title {
-      font-size: 28px; /* 放大標題 */
+      font-size: 28px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -296,7 +301,7 @@
     }
 
     .section-sub {
-      font-size: 16px; /* 放大說明文字 */
+      font-size: 16px;
       color: var(--text-sub);
       max-width: 420px;
       line-height: 1.6;
@@ -305,7 +310,7 @@
     .section-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 32px; /* 增加卡片間距 */
+      gap: 32px;
     }
 
     .section-grid-4 {
@@ -318,7 +323,7 @@
       background: var(--card-bg);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-soft);
-      padding: 28px; /* 增加卡片內距 */
+      padding: 28px;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease;
     }
@@ -329,7 +334,7 @@
     }
 
     .card-header {
-      font-size: 20px; /* 放大卡片標題 */
+      font-size: 20px;
       font-weight: 700;
       margin-bottom: 12px;
       display: flex;
@@ -341,7 +346,7 @@
     }
 
     .card-tagline {
-      font-size: 16px; /* 放大副標 */
+      font-size: 16px;
       color: var(--text-sub);
       margin-bottom: 20px;
       font-weight: 500;
@@ -351,14 +356,14 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: 16px; /* 放大列表文字 */
+      font-size: 16px;
       color: #374151;
     }
 
     .card ul li {
       padding-left: 20px;
       position: relative;
-      margin-bottom: 12px; /* 增加列表行距 */
+      margin-bottom: 12px;
     }
 
     .card ul li::before {
@@ -406,7 +411,6 @@
       align-items: stretch;
     }
 
-    /* 城市示意圖卡片 */
     .city-diagram {
       border-radius: 24px;
       background: linear-gradient(135deg, #fff1f2 0%, #fefce8 100%);
@@ -442,12 +446,11 @@
       border-radius: 12px;
     }
 
-    /* 卡片系統小卡 */
     .card-small {
       background: var(--card-bg);
       border-radius: 16px;
       border: 1px solid var(--border-soft);
-      padding: 24px; /* 增加小卡內距 */
+      padding: 24px;
       box-shadow: var(--shadow-soft);
       font-size: 15px;
       display: flex;
@@ -476,8 +479,8 @@
     .bullet-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px 32px; /* 增加項目間距 */
-      font-size: 17px; /* 放大項目文字 */
+      gap: 20px 32px;
+      font-size: 17px;
       color: #374151;
       line-height: 1.6;
     }
@@ -488,7 +491,7 @@
     }
 
     .bullet-item::before {
-      content: "✦"; /* 換個更有質感的符號 */
+      content: "✦";
       position: absolute;
       left: 0;
       top: 4px;
@@ -517,6 +520,254 @@
       background: #ffffff;
       font-size: 14px;
       font-weight: 500;
+    }
+
+    /* FAB 懸浮按鈕 */
+    .fab-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 100;
+      align-items: center;
+    }
+
+    .fab-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .fab-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .fab-btn:hover {
+      transform: scale(1.1);
+      background: #fff7ed;
+      color: var(--accent-strong);
+      border-color: #fed7aa;
+    }
+
+    .fab-btn.main {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 24px rgba(234, 88, 12, 0.4);
+    }
+
+    .fab-btn.main:hover {
+      background: linear-gradient(135deg, #fb923c, #f97316);
+      transform: scale(1.1) translateY(-2px);
+    }
+    
+    .fab-tooltip {
+      position: absolute;
+      right: 70px;
+      background: rgba(17, 24, 39, 0.9);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      transform: translateX(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-weight: 500;
+    }
+    
+    .fab-btn:hover .fab-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* MODAL (共用) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none; /* 預設隱藏 */
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 95vh; /* 強制固定高度，佔滿螢幕 95% */
+      max-height: none; /* 移除最大高度限制 */
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      flex-shrink: 0; /* 確保標題區不會被壓縮 */
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #6b7280;
+      padding: 4px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .modal-body {
+      flex: 1; /* 自動填滿剩餘高度 */
+      overflow-y: hidden; /* 隱藏 body 自身的捲軸，讓 iframe 內部捲動 */
+      padding: 0;
+      position: relative; /* 作為 iframe 絕對定位的基準 */
+    }
+
+    /* 移除原本個別 container 的高度設定，統一由 modal-body 控制 */
+    .modal-body.iframe-container,
+    .modal-body.form-container {
+      height: auto; 
+    }
+
+    .modal-body iframe {
+      position: absolute; /* 絕對定位填滿 modal-body */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* REGISTRATION FORM STYLES */
+    /* 因為使用了 iframe 全版嵌入，這裡的樣式主要備用，或用於非 iframe 的表單 */
+    .form-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .form-input {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-hint {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .form-submit-btn {
+      margin-top: 10px;
+      background: var(--accent-strong);
+      color: white;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit-btn:hover {
+      background: #c2410c;
     }
 
     /* RWD */
@@ -568,6 +819,18 @@
       .hero-heading {
         font-size: 32px;
       }
+      .fab-container {
+        right: 16px;
+        bottom: 16px;
+      }
+      .fab-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+      .modal-body.form-container {
+        padding: 0;
+      }
     }
   </style>
 </head>
@@ -590,7 +853,7 @@
           <a href="#cards">卡片系統</a>
           <a href="#angels">天使投資</a>
           <a href="#learning">學習價值</a>
-          <a href="https://airchin.github.io/emba/course.html#endorsements" target="_blank" style="color:var(--accent-strong);">重磅推薦 ↗</a>
+          <a href="https://airchin.github.io/emba/index.html#endorsements" target="_blank" style="color:var(--accent-strong);">重磅推薦 ↗</a>
         </div>
       </div>
     </header>
@@ -994,6 +1257,96 @@
         </div>
       </footer>
     </main>
+    
+    <!-- Floating Action Buttons (FAB) -->
+    <div class="fab-container">
+      <!-- 師資陣容 -->
+      <button onclick="openModal('instructorsModal')" class="fab-btn main" title="師資陣容">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 19H17V21H7V19ZM7 3H17C18.1046 3 19 3.89543 19 5V17H5V5C5 3.89543 5.89543 3 7 3ZM12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 11L14 14H10L12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="fab-tooltip">師資陣容</span>
+      </button>
+
+      <!-- 立即報名 (開啟 Modal Form) -->
+      <button onclick="openModal('registerModal')" class="fab-btn" title="立即報名">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17.5 2.5C18.3284 1.67157 19.6716 1.67157 20.5 2.5C21.3284 3.32843 21.3284 4.67157 20.5 5.5L12 14L8 15L9 11L17.5 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="fab-tooltip">立即報名</span>
+      </button>
+
+      <!-- 回到頂端 (好看的箭頭 SVG) -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fab-btn" title="回到頂端">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 15L12 8L19 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="fab-tooltip">回到頂端</span>
+      </button>
+    </div>
+
+    <!-- MODAL: INSTRUCTORS -->
+    <div id="instructorsModal" class="modal-overlay" onclick="closeModal('instructorsModal', event)">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">師資陣容</div>
+          <button class="modal-close" onclick="closeModal('instructorsModal')">✕</button>
+        </div>
+        <div class="modal-body iframe-container">
+          <iframe id="instructorFrame" data-src="https://airchin.github.io/emba/index.html#instructors"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: REGISTRATION FORM -->
+    <div id="registerModal" class="modal-overlay" onclick="closeModal('registerModal', event)">
+      <div class="modal-content" style="max-width: 800px;">
+        <div class="modal-header">
+          <div class="modal-title">課程報名表</div>
+          <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+        </div>
+        <div class="modal-body form-container">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdASEQsJRbDKIudZE9UF_a5sLKBC6dJz91ADKz_pgAZBo5-vQ/viewform?embedded=true" width="100%" height="1573" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <script>
+    // 開啟 Modal
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.classList.add('modal-open'); // 鎖定背景捲動
+
+      // 特殊處理：如果是師資 Modal，則動態載入 iframe 以確保錨點與重整
+      if (modalId === 'instructorsModal') {
+        const iframe = document.getElementById('instructorFrame');
+        if (iframe && iframe.dataset.src) {
+           // 透過重設 src 強制 iframe 重新載入並嘗試跳轉錨點
+           const targetSrc = iframe.dataset.src;
+           iframe.src = ''; // 先清空
+           setTimeout(() => {
+             iframe.src = targetSrc; // 再載入
+           }, 10);
+        }
+      }
+    }
+
+    // 關閉 Modal (支援點擊背景關閉)
+    function closeModal(modalId, event) {
+      // 如果有 event，檢查是否點擊到 overlay 本身 (避免點擊內容時關閉)
+      if (event && event.target !== event.currentTarget) return;
+      
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    }
+  </script>
 </body>
 </html>
