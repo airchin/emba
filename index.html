@@ -1,989 +1,1022 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <title>打造我們的世界博覽會｜政大 EMBA《領導與團隊》</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    :root {
-      --bg: #f9fafb;
-      --bg-alt: #ffffff;
-      --accent: #f97316;    /* 橘色：陽光、活力 */
-      --accent-strong: #ea580c;
-      --accent-soft: #ffedd5;
-      --accent-blue: #2563eb;
-      --text-main: #111827;
-      --text-sub: #6b7280;
-      --card-bg: #ffffff;
-      --border-soft: #e5e7eb;
-      --shadow-soft: 0 12px 30px rgba(15,23,42,0.12);
-      --radius-xl: 18px;
-      --max-width: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
-        "PingFang TC", "Noto Sans TC", sans-serif;
-      background: radial-gradient(circle at top, #fffbeb 0, #f9fafb 50%, #eef2ff 100%);
-      color: var(--text-main);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      font-size: 16px;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    /* NAV */
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: rgba(255,255,255,0.92);
-      border-bottom: 1px solid rgba(209,213,219,0.8);
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-sub);
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: conic-gradient(
-        from 180deg,
-        #f97316,
-        #facc15,
-        #22c55e,
-        #38bdf8,
-        #f97316
-      );
-      padding: 2px;
-      box-shadow: 0 0 16px rgba(248, 175, 64, 0.7);
-    }
-
-    .logo-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 14px;
-      color: #f97316;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      color: var(--text-sub);
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 999px;
-      transition: all 0.15s ease-out;
-    }
-
-    .nav-links a:hover {
-      background: #fffbeb;
-      color: var(--accent-strong);
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 28px 20px 80px;
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
-      gap: 36px;
-      align-items: center;
-      padding: 40px 0 28px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #fffbeb;
-      border: 1px solid #fed7aa;
-      font-size: 12px;
-      color: #9a3412;
-    }
-
-    .hero-tag span {
-      font-weight: 600;
-      color: #ea580c;
-    }
-
-    .hero-heading {
-      font-size: clamp(30px, 4vw, 40px);
-      line-height: 1.2;
-      letter-spacing: 0.01em;
-      margin: 14px 0 10px;
-    }
-
-    .hero-heading span.highlight {
-      color: var(--accent-strong);
-    }
-
-    .hero-subtitle {
-      margin: 0 0 18px;
-      font-size: 16px;
-      color: var(--text-sub);
-      max-width: 36rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: var(--text-sub);
-      background: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(148,163,184,0.35);
-    }
-
-    .pill strong {
-      color: #111827;
-      font-weight: 600;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: all 0.18s ease-out;
-    }
-
-    .btn-primary {
-      background: linear-gradient(to right, #fbbf24, #f97316);
-      color: #1f2933;
-      box-shadow: 0 12px 24px rgba(248, 181, 45, 0.7);
-      font-weight: 600;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(248, 181, 45, 0.9);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid #d1d5db;
-      color: var(--text-sub);
-      font-weight: 500;
-    }
-
-    .btn-ghost:hover {
-      background: #f3f4f6;
-      color: #111827;
-    }
-
-    .hero-note {
-      font-size: 13px;
-      color: var(--text-sub);
-      margin-top: 2px;
-    }
-
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-illustration {
-      border-radius: 22px;
-      background: radial-gradient(circle at top, #bfdbfe 0, #eff6ff 40%, #fefce8 100%);
-      border: 1px solid #dbeafe;
-      box-shadow: var(--shadow-soft);
-      padding: 14px;
-    }
-
-    .hero-illustration img {
-      width: 100%;
-      border-radius: 18px;
-      display: block;
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
-
-    .hero-illu-caption {
-      font-size: 13px;
-      color: var(--text-sub);
-    }
-
-    .hero-illu-caption strong {
-      color: #111827;
-    }
-
-    /* SECTION 通用 */
-
-    .section {
-      margin-top: 40px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-size: 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title span.icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #fffbeb;
-      border: 1px solid #fed7aa;
-      font-size: 16px;
-    }
-
-    .section-sub {
-      font-size: 14px;
-      color: var(--text-sub);
-      max-width: 380px;
-    }
-
-    .section-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .section-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-soft);
-      padding: 16px 16px 14px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card-header {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .card-tagline {
-      font-size: 14px;
-      color: var(--text-sub);
-      margin-bottom: 10px;
-    }
-
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    .card ul li {
-      padding-left: 16px;
-      position: relative;
-      margin-bottom: 6px;
-    }
-
-    .card ul li::before {
-      content: "•";
-      position: absolute;
-      left: 4px;
-      top: 0;
-      color: var(--accent-strong);
-    }
-
-    .tag {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid #fed7aa;
-      color: #9a3412;
-      background: #fffbeb;
-    }
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .chip {
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    /* 城市示意圖卡片 */
-
-    .city-diagram {
-      border-radius: 20px;
-      background: radial-gradient(circle at top, #fee2e2 0, #fef9c3 40%, #eff6ff 100%);
-      border: 1px solid #fecaca;
-      padding: 16px 14px 12px;
-      box-shadow: var(--shadow-soft);
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    .city-diagram-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #111827;
-    }
-
-    .city-diagram img {
-      width: 100%;
-      border-radius: 14px;
-      display: block;
-      margin: 8px 0 10px;
-    }
-
-    .legend-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 12px;
-    }
-
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .legend-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 999px;
-      border: 2px solid #9ca3af;
-      background: #ffffff;
-    }
-
-    /* 卡片系統小卡 */
-
-    .card-small {
-      background: var(--card-bg);
-      border-radius: 14px;
-      border: 1px solid var(--border-soft);
-      padding: 12px 12px 10px;
-      box-shadow: var(--shadow-soft);
-      font-size: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .card-small-title {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .card-small-pill {
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      align-self: flex-start;
-      color: var(--text-sub);
-      background: #f3f4f6;
-    }
-
-    .bullet-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    .bullet-item {
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .bullet-item::before {
-      content: "◆";
-      position: absolute;
-      left: 0;
-      top: 2px;
-      font-size: 11px;
-      color: var(--accent-blue);
-    }
-
-    /* FOOTER */
-
-    .footer {
-      margin-top: 44px;
-      padding-top: 18px;
-      border-top: 1px solid #e5e7eb;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-      font-size: 13px;
-      color: var(--text-sub);
-    }
-
-    .footer-pill {
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      font-size: 12px;
-    }
-
-    /* RWD */
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-right {
-        order: -1;
-      }
-      .section-grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .section-grid-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      main {
-        padding-inline: 16px;
-      }
-      .nav-inner {
-        padding-inline: 16px;
-      }
-      .nav-links {
-        display: none;
-      }
-      .section-grid-4 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .bullet-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣世界博覽會：領導與團隊實戰模擬 - 課程執行摘要</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* 強制使用微軟正黑體 */
+        body, h1, h2, h3, h4, p, span, div, li, a, button, strong, em {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif !important;
+        }
+        
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            font-weight: bold;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #ffffff;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F97316;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 380px;
+            max-height: 450px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+
+        .concept-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .concept-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* NEW CARD SYSTEM STYLING - Stack Effects */
+        .card-base {
+            position: relative;
+            background-color: white;
+            border-radius: 8px;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stack-thick {
+            box-shadow: 
+                2px 2px 0 #cbd5e1,
+                4px 4px 0 #cbd5e1,
+                6px 6px 0 #cbd5e1,
+                8px 8px 0 #cbd5e1;
+            transform: translate(-4px, -4px);
+        }
+        .stack-thick:hover { transform: translate(-4px, -10px); }
+
+        .stack-medium {
+            box-shadow: 
+                2px 2px 0 #bfdbfe,
+                4px 4px 0 #bfdbfe;
+            transform: translate(-2px, -2px);
+        }
+        .stack-medium:hover { transform: translate(-2px, -8px); }
+
+        .stack-thin {
+            box-shadow: 2px 2px 0 #fed7aa;
+        }
+        .stack-thin:hover { transform: translateY(-5px); }
+
+        .card-rare {
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 4px;
+        }
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .rarity-tag {
+            position: absolute;
+            top: -10px;
+            background: #1e293b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* City Grid System Styling */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+            height: 100%;
+            padding: 12px;
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            border: 2px dashed #94a3b8;
+        }
+        
+        .flag {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+            background-color: #eee;
+        }
+        .flag:hover {
+            transform: scale(1.15);
+            z-index: 20;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        /* Flag Designs */
+        .flag-tw { background-color: #FE0000; background-image: radial-gradient(circle, white 20%, transparent 22%), linear-gradient(#000095 100%, transparent 0); background-size: 25% 25%, 50% 50%; background-position: 12% 12%, top left; background-repeat: no-repeat; }
+        .flag-jp { background: radial-gradient(circle, #bc002d 35%, white 36%); }
+        .flag-fr { background: linear-gradient(to right, #0055A4 33%, #FFFFFF 33%, #FFFFFF 66%, #EF4135 66%); }
+        .flag-de { background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%); }
+        .flag-it { background: linear-gradient(to right, #009246 33%, #FFFFFF 33%, #FFFFFF 66%, #CE2B37 66%); }
+        .flag-ua { background: linear-gradient(to bottom, #0057B8 50%, #FFD700 50%); }
+        .flag-se { background: linear-gradient(90deg, transparent 28%, #FECC00 28%, #FECC00 42%, transparent 42%), linear-gradient(#006AA7 40%, #FECC00 40%, #FECC00 60%, #006AA7 60%); }
+        .flag-ch { background-color: #D52B1E; background-image: linear-gradient(90deg, transparent 40%, white 40%, white 60%, transparent 60%), linear-gradient(transparent 40%, white 40%, white 60%, transparent 60%); background-size: 60% 60%; background-position: center; background-repeat: no-repeat; }
+        .flag-fi { background: linear-gradient(90deg, transparent 28%, #003580 28%, #003580 42%, transparent 42%), linear-gradient(white 40%, #003580 40%, #003580 60%, white 60%); }
+        .flag-id { background: linear-gradient(to bottom, #FF0000 50%, #FFFFFF 50%); }
+        .flag-th { background: linear-gradient(to bottom, #A51931 16%, #F4F5F8 16%, #F4F5F8 33%, #2D2A4A 33%, #2D2A4A 67%, #F4F5F8 67%, #F4F5F8 84%, #A51931 84%); }
+        .flag-br { background-color: #009c3b; background-image: radial-gradient(circle, #002776 20%, transparent 21%), linear-gradient(45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, #ffdf00 45%, #ffdf00 55%, transparent 55%); background: radial-gradient(circle, #002776 18%, transparent 19%), linear-gradient(135deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%), linear-gradient(45deg, transparent 35%, #ffdf00 35%, #ffdf00 65%, transparent 65%); background-color: #009c3b; background-blend-mode: normal; }
+        .flag-ae { background: linear-gradient(to right, #FF0000 25%, transparent 25%), linear-gradient(to bottom, #00732F 33%, #FFFFFF 33%, #FFFFFF 66%, #000000 66%); }
+        .flag-at { background: linear-gradient(to bottom, #ED2939 33%, #FFFFFF 33%, #FFFFFF 66%, #ED2939 66%); }
+        .flag-ng { background: linear-gradient(to right, #008751 33%, #FFFFFF 33%, #FFFFFF 66%, #008751 66%); }
+        .flag-pe { background: linear-gradient(to right, #D91023 33%, #FFFFFF 33%, #FFFFFF 66%, #D91023 66%); }
+
+        .connector-lines {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            background-image: linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 25% 25%; z-index: 5;
+        }
+
+        /* 2026+ Competency Card Styles */
+        .comp-card {
+            background: white;
+            border-left: 5px solid;
+            padding: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .comp-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Jensen Quote Style */
+        .jensen-card {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            border: 1px solid #76b900; /* NVIDIA Green */
+            box-shadow: 0 0 20px rgba(118, 185, 0, 0.2);
+        }
+        .jensen-text {
+            color: #e2e8f0;
+        }
+        .jensen-highlight {
+            color: #76b900;
+            font-weight: bold;
+        }
+
+        /* Iron CEO Style */
+        .ceo-card {
+            background: #1e293b; /* Dark Slate */
+            border-left: 6px solid #ef4444; /* Red */
+            color: white;
+        }
+
+        /* Carnegie Style */
+        .carnegie-card {
+            background: #FFFBEB; /* Amber 50 */
+            border: 1px solid #FCD34D; /* Amber 300 */
+        }
+        
+        /* Floating Button Base */
+        .floating-btn {
+            position: fixed;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 50;
+            cursor: pointer;
+            color: white;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Specific Button Styles */
+        .btn-top {
+            bottom: 2rem;
+            background-color: #76b900; /* NVIDIA Green */
+        }
+        .btn-top:hover {
+            background-color: #5d9100;
+        }
+
+        .btn-link {
+            bottom: 6.5rem; /* Position above the top button */
+            background-color: #2563EB; /* Blue */
+        }
+        .btn-link:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
 </head>
-<body>
-  <div class="page">
-    <header class="nav">
-      <div class="nav-inner">
-        <div class="logo">
-          <div class="logo-mark">
-            <div class="logo-inner">TW</div>
-          </div>
-          <div>
-            <div style="font-weight:700;color:#111827;">Taiwan World Expo</div>
-            <div style="font-size:12px;">NCCU EMBA｜領導與團隊課程</div>
-          </div>
+<body class="antialiased selection:bg-orange-200 selection:text-orange-900">
+    <!-- Floating Buttons -->
+    <!-- Course Link Button -->
+    <a href="https://airchin.github.io/emba/course.html" target="_blank" class="floating-btn btn-link" title="課程詳情">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+    </a>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="floating-btn btn-top" title="回到頂端">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </a>
+    <!-- HEADER & NAV -->
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+        
+        <!-- Navigation Menu -->
+        <nav class="relative z-20 flex justify-end px-8 py-6 space-x-8 text-sm md:text-base">
+			<a href="#process" class="nav-link">課程總覽</a>
+            <a href="#highlights" class="nav-link">看見領導力</a>
+            <a href="#endorsements" class="nav-link">重磅推薦</a>
+            <a href="#instructors" class="nav-link">講師陣容</a>
+            <a href="#testimonials" class="nav-link">名人分享</a>
+        </nav>
+
+        <div class="container mx-auto px-4 pb-24 pt-10 text-center relative z-10">
+            <span class="inline-block py-2 px-5 rounded-full bg-orange-500 text-white text-base font-bold tracking-wider mb-8 shadow-lg uppercase">EMBA 領導力課程提案</span>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-tight tracking-wide">
+                台灣世界博覽會<br>
+                <span class="text-orange-400">領導與團隊實戰模擬</span>
+            </h1>
+            <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
+                <p class="text-2xl md:text-3xl font-bold leading-relaxed text-blue-50">
+                    <span class="text-orange-400 text-4xl mr-2">❝</span>
+                    3小時高壓模擬 × 經歷完整團隊週期 × 驗證真實領導力
+                    <span class="text-orange-400 text-4xl ml-2">❞</span>
+                </p>
+            </div>
         </div>
-        <div class="nav-links">
-          <a href="#flow">課程流程</a>
-          <a href="#city">世界博覽會場景</a>
-          <a href="#cards">卡片系統</a>
-          <a href="#angels">天使投資</a>
-          <a href="#learning">學習價值</a>
-        </div>
-      </div>
     </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div>
-          <div class="hero-tag">
-            <span>領導與團隊</span>｜世界博覽會實境課程
-          </div>
-          <h1 class="hero-heading">
-		   打造我們的 <span class="highlight">世界博覽會</span>：<br>
-          一堂被看見的<span class="highlight">領導實境課</span>
-          </h1>
-          <p class="hero-subtitle">
-            學員不再只是「聽領導」，而是在高度不確定、跨文化、資源不均的情境裡，
-            被迫一起做選擇、談判、取捨，讓自己的領導樣貌自然浮現。
-          </p>
-
-          <div class="hero-badges">
-            <div class="pill">
-              ⏱ <strong>170 分鐘</strong> 三階段連續任務
+    <!-- SECTION: WHY & DATA -->
+    <section class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-blue-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-blue-600 text-5xl mb-6 font-black">01</div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why This?<br><span class="text-base text-slate-500">為何是世博？</span></h3>
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    這是商業縮影的極致隱喻。要在極短時間內，整合跨文化衝突、政治角力與資源壓力。我們不玩遊戲，而是讓學員從「建構實體城市」的過程中，直接看見自己的領導行為。
+                </p>
             </div>
-            <div class="pill">
-              🌍 <strong>16 國展館</strong>＋台灣主題館
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-orange-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-orange-600 text-5xl mb-6 font-black">02</div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why Now?<br><span class="text-base text-slate-500">為何是現在？</span></h3>
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    AI 時代，SOP 已被取代。人類核心價值在於「在模糊中定義願景」。本課程訓練領導者應對 VUCA/BANI 的非線性挑戰，鍛鍊在混亂中凝聚人心的能力。
+                </p>
             </div>
-            <div class="pill">
-              👥 <strong>200+ EMBA 學員</strong> 同場互動
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-teal-500 hover:-translate-y-1 transition duration-300">
+                <div class="text-teal-600 text-5xl mb-6 font-black">03</div>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Why Us?<br><span class="text-base text-slate-500">獨特優勢</span></h3>
+                <p class="text-lg text-slate-600 font-bold leading-relaxed">
+                    結合 Tuckman 團隊動力學，獨創「天使投資人」即時回饋系統。更透過「國家反轉」機制，精準測試團隊面對挫折的復原力 (Resilience)。
+                </p>
             </div>
-            <div class="pill">
-              🎭 <strong>領導被看見，而不是被宣稱</strong>
-            </div>
-          </div>
-
-          <div class="hero-cta">
-            <a href="#learning" class="btn-primary">
-              馬上看課程設計
-              <span>→</span>
-            </a>
-            <a href="#flow" class="btn-ghost">
-              瀏覽三階段流程
-            </a>
-          </div>
-          <div class="hero-note">
-            這堂課的作品是一座城市，但真正的產出，是每位學員的
-            <strong>Leadership Footprint（領導足跡）</strong>。
-          </div>
         </div>
 
-        <div class="hero-right">
-          <div class="hero-illustration">
-            <!-- Hero 示意圖：之後可換成實際照片 / 3D 渲染 -->
-            <img
-              src="https://previews.dropbox.com/p/thumb/AC0KgCJelrisKWph7Fmf9eWVMn2MZr4Ei1RzH6TWnKDyUlAQn8IMxXgy6GGlOnP5oGDeYbWFPZd3bjQnIzwI0wJgCNJjUsBTBB-kvAVY3fxDcZVoaaWN0fybB82dnZQw994QA8g5oh51nB4zNBKkhseV3-CjAQ9mMsLY-0oAXoS-tHl5ZXKWG0Y80ZT_2peqEyRt8SOHXku2YwYhi-nLMh4UaCpjpX6h1bw59iCV8V0cDeOt82L20pzixdElEtI6nhZmZ_6qy3Rnt6-SKUlOlTpNzybSWgEYZr4yD0dJKUtFAoNtppZqLFd0sL-VZOlD9SLpTfxHKHth6SYg2wW-wxYJ0HkXS_6KJz4L2PeBzZH0QtHoYKfojvTz0dNe6s3F697uZ2sP710kMnMPfDM6P2xm/p.png?is_prewarmed=true"
-              alt="台灣世界博覽會城市模型示意圖"
-            />
-            <div class="hero-illu-caption">
-              <strong>示意圖：</strong>
-              台灣主題館位於中心，周圍由 16 座國家展館環繞。  
-              每一座展館代表一個國家，也代表一組學員的集體決策。
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <h4 class="text-center text-xl font-bold text-slate-700 mb-8">從「管理」到「領導」的技能權重轉移</h4>
+                <div class="chart-container">
+                    <canvas id="leadershipShiftChart"></canvas>
+                </div>
             </div>
-          </div>
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <h4 class="text-center text-xl font-bold text-slate-700 mb-8">2026+ 關鍵領導力職能地圖</h4>
+                <div class="flex flex-col space-y-4 h-full justify-center pb-4">
+                    <div class="comp-card border-blue-500">
+                        <div class="text-3xl mr-4">🤖</div>
+                        <div><h5 class="font-bold text-lg text-slate-800">AI 人機協作</h5><p class="text-sm text-slate-500">領導 AI 團隊進行決策。</p></div>
+                    </div>
+                    <div class="comp-card border-orange-500">
+                        <div class="text-3xl mr-4">❤️‍🔥</div>
+                        <div><h5 class="font-bold text-lg text-slate-800">情緒韌性</h5><p class="text-sm text-slate-500">在變局中展現快速復原力。</p></div>
+                    </div>
+                    <div class="comp-card border-indigo-500">
+                        <div class="text-3xl mr-4">🌐</div>
+                        <div><h5 class="font-bold text-lg text-slate-800">跨界系統思考</h5><p class="text-sm text-slate-500">看見「世界城市」的整體局。</p></div>
+                    </div>
+                    <div class="comp-card border-emerald-500">
+                        <div class="text-3xl mr-4">⚖️</div>
+                        <div><h5 class="font-bold text-lg text-slate-800">道德決策</h5><p class="text-sm text-slate-500">在模糊地帶堅守價值底線。</p></div>
+                    </div>
+                    <div class="comp-card border-teal-500">
+                        <div class="text-3xl mr-4">🌱</div>
+                        <div><h5 class="font-bold text-lg text-slate-800">永續思維</h5><p class="text-sm text-slate-500">創造長遠且共好的解決方案。</p></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- 課程定位＆三大精神 -->
-      <section id="learning" class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">🌞</span>
-            <span>課程定位：Leadership by Doing</span>
-          </div>
-          <div class="section-sub">
-            以「台灣主辦世界博覽會」為主軸，結合願景、制度設計與真實壓力，
-            讓學員在三小時內完成一輪完整的領導與團隊實驗。
-          </div>
+    <!-- SECTION: PROCESS FLOW -->
+    <section id="process" class="py-20 px-4 md:px-8 bg-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6 border-b-4 border-indigo-600 inline-block pb-3">三階段課程流程總覽</h2>
+                <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto font-bold">
+                    <span class="text-orange-400 text-4xl mr-2">❝</span>
+                    3小時高壓模擬 × 經歷完整團隊週期 × 驗證真實領導力
+                    <span class="text-orange-400 text-4xl ml-2">❞</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-slate-300 -translate-y-1/2 z-0 rounded-full"></div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-blue-500 relative z-10 flex flex-col h-full">
+                    <div class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">1</div>
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-blue-800">第一階段：<BR>願景與共同語言<br><span class="text-base font-normal text-slate-500">(Formation)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <p class="text-base font-bold text-slate-700 bg-blue-50 p-3 rounded">任務：願景宣言、團隊契約</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：模糊情境下的共識建立</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-orange-500 relative z-10 flex flex-col h-full mt-10 md:mt-0">
+                    <div class="bg-orange-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">2</div>
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-orange-800">第二階段：<BR>國家反轉 × 天使投資<br><span class="text-base font-normal text-slate-500">(Storming/Norming)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <p class="text-base font-bold text-slate-700 bg-orange-50 p-3 rounded">任務：國家反轉、爭取天使資源</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：情緒韌性、決策果斷度</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-teal-500 relative z-10 flex flex-col h-full mt-10 md:mt-0">
+                    <div class="bg-teal-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold mx-auto -mt-14 border-4 border-slate-100 shadow-sm">3</div>
+                    <h3 class="text-2xl font-bold text-center mt-6 mb-3 text-teal-800">第三階段：<BR>模型實作與城市整合<br><span class="text-base font-normal text-slate-500">(Performing)</span></h3>
+                    <div class="flex-grow space-y-3 mt-2">
+                        <p class="text-base font-bold text-slate-700 bg-teal-50 p-3 rounded">任務：展館模型、跨組城市整合</p>
+                        <p class="text-base text-slate-600 p-2">觀察重點：執行力、系統思考、競合談判</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-2xl shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+                    <div class="lg:col-span-1">
+                        <h3 class="text-3xl font-bold mb-5 text-slate-800">經歷完整的團隊週期</h3>
+                        <p class="text-lg text-slate-600 mb-5 font-bold text-justify leading-relaxed">
+                            課程刻意設計了「國家反轉」的衝擊，製造團隊的<span class="text-orange-600">風暴期 (Storming)</span>。學員必須在情緒低谷中重組，才能邁向高效能的表現期。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="chart-container">
+                            <canvas id="teamJourneyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="section-grid-3">
-          <div class="card">
-            <div class="card-header">
-              願景要被看見
-              <span class="tag">Vision Must Be Visible</span>
-            </div>
-            <div class="card-tagline">
-              不是講願景，而是讓願景變成每個人做決定的共同坐標。
-            </div>
-            <ul>
-              <li>以台灣主辦國身分寫出一句話願景</li>
-              <li>決定主辦城市與世博主題</li>
-              <li>畫出 V1.0 世界觀草圖海報</li>
-              <li>所有國家館設計都必須回扣這個願景</li>
-            </ul>
-          </div>
+    <!-- SECTION: VISION & REALITY -->
+    <section class="py-20 px-4 md:px-8 bg-blue-50 border-y border-blue-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-slate-800 mb-10 text-center text-blue-900">從願景到實踐：看得見的領導力</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+                <div class="flex flex-col">
+                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-full">
+                        <div class="absolute top-6 left-6 bg-blue-600/90 backdrop-blur text-white text-base px-4 py-2 rounded shadow-lg z-10 font-bold tracking-wide">
+                            課程願景：世界城市系統觀
+                        </div>
+                        <img src="https://previews.dropbox.com/p/thumb/AC0KgCJelrisKWph7Fmf9eWVMn2MZr4Ei1RzH6TWnKDyUlAQn8IMxXgy6GGlOnP5oGDeYbWFPZd3bjQnIzwI0wJgCNJjUsBTBB-kvAVY3fxDcZVoaaWN0fybB82dnZQw994QA8g5oh51nB4zNBKkhseV3-CjAQ9mMsLY-0oAXoS-tHl5ZXKWG0Y80ZT_2peqEyRt8SOHXku2YwYhi-nLMh4UaCpjpX6h1bw59iCV8V0cDeOt82L20pzixdElEtI6nhZmZ_6qy3Rnt6-SKUlOlTpNzybSWgEYZr4yD0dJKUtFAoNtppZqLFd0sL-VZOlD9SLpTfxHKHth6SYg2wW-wxYJ0HkXS_6KJz4L2PeBzZH0QtHoYKfojvTz0dNe6s3F697uZ2sP710kMnMPfDM6P2xm/p.png?is_prewarmed=true" alt="Expo City Concept Model" class="concept-image w-full h-80 md:h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16">
+                            <p class="text-white font-bold text-2xl mb-2">從單組競爭走向跨界共好</p>
+                            <p class="text-slate-200 text-lg">從 16 組團隊共構一座世界城市，練習系統思考。</p>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="card">
-            <div class="card-header">
-              領導在混亂中浮現
-              <span class="tag">Leadership Emerges from Chaos</span>
+                <div class="flex flex-col">
+                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border-4 border-white h-full">
+                        <div class="absolute top-6 left-6 bg-orange-500/90 backdrop-blur text-white text-base px-4 py-2 rounded shadow-lg z-10 font-bold tracking-wide">
+                            實戰現場：跨組整合與談判
+                        </div>
+                        <img src="https://previews.dropbox.com/p/thumb/AC23N92oVw3vyAI2pPZCGtEo2GwSxnk_ghmthfKz_cJLofjjdFZflvM2UfxMBru1Q8qeQK6urqObgf8MUJM-i6lI491-qn00yMoXAK5peppUrNrSUPW4LJFN08jGVkKq6cLQAO8k8cga0c9TXw1CukoAnddTQMVyHvjPoiXEhL7K36B9CJABl29CjPRkX8vP3-yoVSNO6IGJwgBMSkcPhNiHVF88gLfpfwO8DSfSjvI9uUxYtoj0ahMoMWTc7eKkDXg30DAaOFQBTbAITKHwLS4wavR4FcQRTK7jtZpgPk7xlePpgd5Uz1aK8pVy6bnc7GMoSmED5q8l564sGvP6ShL50aymYSf4SW5ySF-fGq4Okodng9RZHXTJsV1bMAL3BwxhGEkGMbNd1_oIgJXLqb8k/p.png?is_prewarmed=true" alt="Students building model" class="concept-image w-full h-80 md:h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16">
+                            <p class="text-white font-bold text-2xl mb-2">模擬真實商業的資源壓力</p>
+                            <p class="text-slate-200 text-lg">不指定組長，讓領導在混亂與談判中自然浮現。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-tagline">
-              不指定組長、不分配頭銜，讓領導行為自然被看見。
-            </div>
-            <ul>
-              <li>抽到的國家不得交換、不得重抽</li>
-              <li>資源不均、卡片干預、天使投資皆為真實壓力</li>
-              <li>在時間與資訊不完整的情況下做出取捨</li>
-              <li>用行為，而不是職稱，定義誰在領導</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              團隊成熟靠協作，而不是指令
-              <span class="tag">Collaboration over Control</span>
-            </div>
-            <div class="card-tagline">
-              16 組各有任務，卻必須共同完成「同一座城市」。
-            </div>
-            <ul>
-              <li>與左右鄰國協調動線、景觀與故事連結</li>
-              <li>黃金一環位置由城市整體評分決定</li>
-              <li>鼓勵跨組協商、資源交換與城市整合</li>
-              <li>最終作品是一座可以被「一眼讀懂」的世界城市</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 三階段流程 -->
-      <section id="flow" class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">🧭</span>
-            <span>三階段流程：170 分鐘走完一輪團隊生命週期</span>
-          </div>
-          <div class="section-sub">
-            對應 Tuckman 模型：Forming → Storming → Norming → Performing，
-            讓學員真正感受到團隊是怎麼成熟的。
-          </div>
-        </div>
-
-        <div class="section-grid-3">
-          <div class="card">
-            <div class="card-header">
-              01｜願景形成（0–40 分）
-              <span class="tag">Forming</span>
-            </div>
-            <div class="card-tagline">
-              從「我們要辦什麼樣的世博？」開始，建立共同語言。
-            </div>
-            <ul>
-              <li>一句話台灣世博願景</li>
-              <li>主辦城市與未來想像</li>
-              <li>5–10 個優先邀請國家</li>
-              <li>V1.0 世界觀草圖海報</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              02｜國家策略 × 展館建構（40–150 分）
-              <span class="tag">Storming → Norming → Performing</span>
-            </div>
-            <div class="card-tagline">
-              抽國家、翻譯文化、做出展館模型，完整經歷衝突與整合。
-            </div>
-            <ul>
-              <li>抽籤決定代表國家（不可交換）</li>
-              <li>撰寫國家館「展館理念卡」</li>
-              <li>以 A3 板搭建立體展館模型</li>
-              <li>導師巡場＋天使投資＋卡片干預</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              03｜城市整合 × 公開發表（150–180 分）
-              <span class="tag">Adjourning</span>
-            </div>
-            <div class="card-tagline">
-              組好城市、上台發表，讓學員看見彼此的領導足跡。
-            </div>
-            <ul>
-              <li>16 國展館＋台灣主題館組成完整城市</li>
-              <li>依評分決定「黃金一環」位置</li>
-              <li>每組 60–90 秒城市發表</li>
-              <li>教授從「行為」而非「美術」做總結與回扣</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 世界博覽會場景＋示意圖 -->
-      <section id="city" class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">🏙</span>
-            <span>世界博覽會場景：一座可以「讀懂」的城市</span>
-          </div>
-          <div class="section-sub">
-            以 A3 × 16 的模組化佈局，讓台灣館成為世界城市的核心，
-            每座展館既是主角，也是整座城市敘事的一部分。
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-header">
-              台灣主題館：整座城市的心臟
-              <span class="tag">A3 × 2｜城市中心</span>
-            </div>
-            <div class="card-tagline">
-              代表本屆世博願景，是所有展館設計的起點與參照座標。
-            </div>
-            <ul>
-              <li>固定在城市俯視圖正中央</li>
-              <li>象徵台灣對未來文明的想像（如「未來無煙之城」）</li>
-              <li>作為所有國家館主題、故事與動線連結的基準點</li>
-              <li>不必最華麗，但必須最「清楚」表達核心價值</li>
-            </ul>
-            <div class="chips-row">
-              <div class="chip">共同願景載體</div>
-              <div class="chip">城市視覺中心</div>
-              <div class="chip">所有國家館對齊點</div>
-            </div>
-          </div>
-
-          <div class="city-diagram">
-            <div class="city-diagram-title">示意圖：跨組整合與談判</div>
-            <!-- 城市俯視圖示意圖，可換為真正模型照片或插畫 -->
-            <img
-              src="https://previews.dropbox.com/p/thumb/AC23N92oVw3vyAI2pPZCGtEo2GwSxnk_ghmthfKz_cJLofjjdFZflvM2UfxMBru1Q8qeQK6urqObgf8MUJM-i6lI491-qn00yMoXAK5peppUrNrSUPW4LJFN08jGVkKq6cLQAO8k8cga0c9TXw1CukoAnddTQMVyHvjPoiXEhL7K36B9CJABl29CjPRkX8vP3-yoVSNO6IGJwgBMSkcPhNiHVF88gLfpfwO8DSfSjvI9uUxYtoj0ahMoMWTc7eKkDXg30DAaOFQBTbAITKHwLS4wavR4FcQRTK7jtZpgPk7xlePpgd5Uz1aK8pVy6bnc7GMoSmED5q8l564sGvP6ShL50aymYSf4SW5ySF-fGq4Okodng9RZHXTJsV1bMAL3BwxhGEkGMbNd1_oIgJXLqb8k/p.png?is_prewarmed=true"
-              alt="台灣世界博覽會俯視城市佈局示意圖"
-            />
-            <div class="legend-row">
-              <div class="legend-item">
-                <span class="legend-dot" style="border-color:#facc15;"></span>
-                黃金一環｜前 4 名展館，環繞台灣館
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot" style="border-color:#60a5fa;"></span>
-                中環展館｜故事與整合度佳
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot" style="border-color:#9ca3af;"></span>
-                外環展館｜展現文明多樣性與世界廣度
-              </div>
-            </div>
-            <p style="margin-top:8px;">
-              教學重點：不是比誰最漂亮，而是看「整座城市是否說得通」、
-              「台灣館是否真的成為世界的核心」。
+            
+            <p class="text-center text-sm text-slate-500 mt-6">
+                ※ 圖片呈現：左圖為宏觀願景模擬，右圖為課程實作現場。
             </p>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- 卡片系統＋示意圖 -->
-      <section id="cards" class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">🃏</span>
-            <span>卡片系統：把管理世界濃縮進一疊牌</span>
-          </div>
-          <div class="section-sub">
-            卡片不是遊戲化噱頭，而是刻意設計的「制度干預點」，
-            用來製造不公平、資源差異與翻盤機會，讓領導行為更立體。
-          </div>
+    <!-- SECTION: HIGHLIGHTS (Moved before Endorsements) -->
+    <section id="highlights" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-slate-800">
+                在資源不均與變局中淬鍊 <span class="text-orange-400">高階領導決策力</span>
+            </h2>
+            <p class="text-xl text-slate-600 max-w-4xl mx-auto font-bold">
+                我們不看運氣，只看行為。透過精密的機制設計，將抽象的領導力轉化為具體的決策結果。
+            </p>
         </div>
 
-        <div class="section-grid-4">
-          <div class="card-small">
-            <div class="card-small-title">A 類｜一般卡</div>
-            <div class="card-small-pill">資源＆效率</div>
-            <div>
-              資源卡、幫手卡、導師支援卡、命運卡。  
-              讓領先組更有效率，也讓他們學會承擔「用好資源」的責任。
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Highlight 1: Angel Investors -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 chart-container mb-6">
+                    <canvas id="angelCriteriaChart"></canvas>
+                </div>
+                <h3 class="text-2xl font-bold text-purple-700 mb-3">1. 天使投資機制</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    反映領導效能的即時鏡像。天使投資人依據「願景清晰度」與「協作氛圍」給予資源，而非看結果美觀度。
+                </p>
             </div>
-          </div>
 
-          <div class="card-small">
-            <div class="card-small-title">B 類｜特殊卡</div>
-            <div class="card-small-pill">風險＆翻盤</div>
-            <div>
-              天災卡、免疫卡、反轉卡、進階素材卡。  
-              讓落後組仍有機會翻盤，並創造衝突與張力。
+            <!-- Highlight 2: Card System -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 mb-6 flex flex-col justify-center items-center">
+                    <div class="flex justify-between w-full h-32 px-2 items-end">
+                        <div class="card-base stack-thick bg-slate-50 border-slate-300 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag">50%</div>
+                            <div class="card-icon">📦</div>
+                            <div class="card-title">基礎</div>
+                        </div>
+                        <div class="card-base stack-medium bg-blue-50 border-blue-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-blue-600">30%</div>
+                            <div class="card-icon">💎</div>
+                            <div class="card-title text-blue-800">高階</div>
+                        </div>
+                        <div class="card-base stack-thin bg-orange-50 border-orange-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-orange-600">15%</div>
+                            <div class="card-icon">🤝</div>
+                            <div class="card-title text-orange-800">策略</div>
+                        </div>
+                        <div class="card-base card-rare bg-teal-50 border-teal-400 w-1/4 h-24 mx-1">
+                            <div class="rarity-tag bg-teal-600">5%</div>
+                            <div class="card-icon">🔑</div>
+                            <div class="card-title text-teal-800">特許</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-orange-600 mb-3">2. 創新教學機制：卡片系統</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    透過基礎、高階、策略與特許四種卡片，將資源不均具象化。團隊必須運用有限手牌進行跨組談判與策略交換。
+                </p>
             </div>
-          </div>
 
-          <div class="card-small">
-            <div class="card-small-title">C 類｜極品卡</div>
-            <div class="card-small-pill">投資＆差異化</div>
-            <div>
-              導師投資卡、導師支援加倍卡。  
-              象徵現實世界中少數被「外部資源加持」的團隊。
+            <!-- Highlight 3: System View -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex flex-col">
+                <div class="h-48 mb-6 flex items-center justify-center relative">
+                    <div class="city-grid relative">
+                        <div class="connector-lines"></div>
+                        <div class="flag flag-tw" title="台灣"></div><div class="flag flag-jp" title="日本"></div><div class="flag flag-fr" title="法國"></div><div class="flag flag-de" title="德國"></div>
+                        <div class="flag flag-it" title="義大利"></div><div class="flag flag-ch" title="瑞士"></div><div class="flag flag-se" title="瑞典"></div><div class="flag flag-fi" title="芬蘭"></div>
+                        <div class="flag flag-ua" title="烏克蘭"></div><div class="flag flag-id" title="印尼"></div><div class="flag flag-th" title="泰國"></div><div class="flag flag-br" title="巴西"></div>
+                        <div class="flag flag-ae" title="阿聯酋"></div><div class="flag flag-at" title="奧地利"></div><div class="flag flag-ng" title="奈及利亞"></div><div class="flag flag-pe" title="秘魯"></div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-blue-800 mb-3">3. 世界城市系統觀</h3>
+                <p class="text-slate-600 text-base font-bold flex-grow leading-relaxed">
+                    從單組競爭走向跨界共好。最終產出不是 16 個獨立展館，而是一座必須彼此連通的城市，考驗系統思考能力。
+                </p>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <div class="card-small">
-            <div class="card-small-title">F 類｜彩蛋卡</div>
-            <div class="card-small-pill">運氣＆驚喜</div>
-            <div>
-              隱藏助攻卡、隱藏素材卡，藏在材料包裡，  
-              讓「運氣」成為管理討論的一部分，但不主導成敗。
+    <!-- SECTION: ENDORSEMENTS (JENSEN & CEO) -->
+    <section id="endorsements" class="py-24 px-4 md:px-8 bg-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 L100 0" stroke="#76b900" stroke-width="0.5"/>
+                <path d="M20 100 L100 20" stroke="#76b900" stroke-width="0.5"/>
+            </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <!-- Jensen Huang -->
+            <div class="mb-16 text-center">
+                <span class="text-[#76b900] font-bold tracking-widest uppercase text-sm mb-4 block">FROM SILICON VALLEY</span>
+                <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                    來自仁勳的重磅推薦
+                </h2>
+                <div class="w-24 h-1 bg-[#76b900] mx-auto"></div>
             </div>
-          </div>
-        </div>
 
-        <p style="font-size:13px;color:var(--text-sub);margin-top:10px;">
-          ➤ 每階段每組限用一張同類型卡，由主持人宣告啟動效果。  
-          核心學習：不公平是常態，關鍵在於你如何在制度裡作決策。
-        </p>
-      </section>
-
-      <!-- 天使投資 -->
-      <section id="angels" class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">👼</span>
-            <span>天使投資：練習 90 秒說服決策者</span>
-          </div>
-          <div class="section-sub">
-            三位 Angel 代表三種利害關係人：資源型、執行型、舞台／關係型，
-            在有限時間與名額下做出真實投資決策。
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-header">
-              募資流程（BRAVE Pitch）
-              <span class="tag">40 分鐘｜兩梯次</span>
+            <div class="jensen-card p-10 md:p-14 rounded-3xl mb-16 max-w-5xl mx-auto transform hover:scale-[1.01] transition duration-500">
+                <div class="text-6xl text-[#76b900] opacity-50 font-serif mb-6">“</div>
+                <p class="text-2xl md:text-3xl font-bold leading-relaxed mb-8 text-white">
+                    這不是一堂課，它是一座正在運轉的迷你世界。<br>
+                    你們把世界博覽會，這個象徵國家願景、多元文化、資源競逐的複雜系統，濃縮成 170 分鐘的沉浸式領導演練。<br><br>
+                    <span class="text-[#76b900]">它不是在教領導，而是在生成領導。</span><br>
+                    每一位在乎人才、在乎競爭力、在乎企業韌性的公司，都值得讓主管參加一次。
+                </p>
+                <div class="flex items-center justify-end border-t border-gray-700 pt-6">
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-white">黃仁勳 (模擬語氣)</div>
+                        <div class="text-[#76b900] font-bold tracking-wide">NVIDIA 創辦人暨執行長</div>
+                    </div>
+                </div>
             </div>
-            <ul>
-              <li>各組完成國家館計畫書後進入候選區</li>
-              <li>Angel 靜態閱讀後挑選每梯次最多 5 組上台 Pitch</li>
-              <li>每組 1–2 分鐘：說清國家、故事、亮點與資源需求</li>
-              <li>Angel 當場決定投／不投與投資組合（材料、輔導、時間等）</li>
-              <li>決策不可撤回，未被選上的組別亦必須在資源較少情況下前進</li>
-            </ul>
-          </div>
 
-          <div class="card">
-            <div class="card-header">
-              學習焦點：不只是「Pitch 好不好聽」
-              <span class="tag">真實管理情境壓縮</span>
+            <!-- Iron CEO Section (Within Dark Theme) -->
+            <div class="mt-24 pt-20 border-t border-gray-800">
+                <div class="text-center mb-16">
+                    <span class="text-red-600 font-bold tracking-widest uppercase text-sm mb-4 block">CORPORATE STRATEGY</span>
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight text-white">
+                        鐵血 CEO 的戰略解讀
+                    </h2>
+                    <p class="mt-6 text-xl text-gray-400 max-w-3xl mx-auto font-bold">
+                        「既然你很清楚這不是去『玩』，那我就告訴你，為什麼我准許這門課存在。」
+                    </p>
+					<p class="mt-2 text-lg text-gray-500 max-w-3xl mx-auto font-bold">
+                        你設計的每一個環節，在我眼裡都不是「遊戲規則」，而是職場生死的預演。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 text-slate-900">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-red-600">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">1. 關於「有限資源與鬥爭」：這就是市場的本質</h4>
+                        <p class="text-sm font-bold text-red-600 mb-4 uppercase">MARKET REALITY</p>
+                        <p class="text-slate-600 mb-4">
+                            你提到的「募資平台機制」和「天使投資人」，完全對應了我們集團內部的預算爭奪戰。
+                        </p>
+                        <div class="mb-4">
+                            <span class="font-bold text-slate-800">我的解讀：</span>
+                            <span class="text-slate-600">在公司裡，沒有所謂「公平分配」的資源。業務一部和業務二部想要 Headcount，就要拿業績預測 (Forecast) 來換。</span>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded text-sm text-slate-700 italic border-l-4 border-slate-400">
+                            "我要看的： 當「天使投資人」只有有限籌碼時，誰敢第一個衝上去談判？誰還在原地等著別人分配剩下的殘羹冷炙？不敢爭取資源的主管，就沒資格帶團隊。"
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-slate-700">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">2. 關於「誰做帶頭人」：頭銜是虛的，影響力才是真的</h4>
+                        <p class="text-sm font-bold text-slate-600 mb-4 uppercase">NATURAL LEADERSHIP</p>
+                        <p class="text-slate-600 mb-4">
+                            你刻意設計「沒有指定組長」，這是這門課最狡猾、也最精彩的地方。
+                        </p>
+                        <div class="mb-4">
+                            <span class="font-bold text-slate-800">我的解讀：</span>
+                            <span class="text-slate-600">平常大家看總經理的臉色行事，但在這個沙盒裡，大家都是平等的。這時候誰能跳出來整合意見，誰就是真正的 High Potential。</span>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded text-sm text-slate-700 italic border-l-4 border-slate-400">
+                            "我要看的：產品能不能梳理願景？特助能不能協調？誰在混亂中建立了秩序，誰就該被升遷；誰在混亂中製造了更多噪音，誰就該被檢討。"
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-orange-500">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">3. 關於「卡片系統與應變」：風險管理的實戰</h4>
+                        <p class="text-sm font-bold text-orange-500 mb-4 uppercase">RISK MANAGEMENT</p>
+                        <p class="text-slate-600 mb-4">
+                            你提到的「卡片系統」，特別是「天災卡」和「命運卡」，這不是遊戲道具，這是 VUCA 的具象化。
+                        </p>
+                        <div class="mb-4">
+                            <span class="font-bold text-slate-800">我的解讀：</span>
+                            <span class="text-slate-600">做專案哪有不變更需求的？客戶哪有不砍預算的？系統哪有不當機的？</span>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded text-sm text-slate-700 italic border-l-4 border-slate-400">
+                            "我要看的：當「天災卡」下來，原本的計畫作廢時，誰的心態崩了？誰能立刻 Pivot (轉向)？如果是維運或專案 遇到這種情況，我要看她們是抱怨「規則不公」，還是立刻計算損失、調整 Scope。應變能力 = 存活能力。"
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-blue-600">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">4. 關於「落實與成果」：模型不只是勞作，是交付物</h4>
+                        <p class="text-sm font-bold text-blue-600 mb-4 uppercase">DELIVERABLE</p>
+                        <p class="text-slate-600 mb-4">
+                            你強調「把資源用的落實」以及最後組成「一座城市」。
+                        </p>
+                        <div class="mb-4">
+                            <span class="font-bold text-slate-800">我的解讀：</span>
+                            <span class="text-slate-600">很多主管只會寫 PPT (願景)，不會落地 (模型)。你的設計強迫他們必須做出實體，而且還要跟隔壁組接得起來 (微連結)。</span>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded text-sm text-slate-700 italic border-l-4 border-slate-400">
+                            "我要看的：Output vs. Outcome。模型做得很漂亮 (Output)，但如果跟台灣主題館接不起來，導致動線中斷，這就是失敗的 Outcome。我們各自為政太久了，我希望看到 能主動去跟團隊協調介面。接不起來的展館，就是推不動的整合方案。"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-10 rounded-2xl shadow-2xl max-w-4xl mx-auto text-center border-2 border-red-600">
+                    <h3 class="text-2xl font-bold mb-6 text-red-500 tracking-widest uppercase">THE VERDICT (總結指令)</h3>
+                    <p class="text-xl leading-relaxed mb-8">
+                        去執行吧。但我有一個條件：課程結束後的「反思 (Reflection)」，<span class="text-red-400 font-bold border-b-2 border-red-400">我要看到血流成河的真實檢討。</span><br><br>
+                        如果他們回來告訴我「大家都很努力，團隊氣氛很好」，那你就別再來見我了。<br>
+                        我要聽到的是：「我們因為溝通失誤浪費了 30% 的資源」、「我們因為誤判投資人喜好而失去先機」。
+                    </p>
+                    <div class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full">
+                        只有承認失敗，這筆學費才算花得有價值。
+                    </div>
+                </div>
             </div>
-            <div class="bullet-list">
-              <div class="bullet-item">
-                在資訊不完全下做決策：天使也會後悔或錯過好案子。
-              </div>
-              <div class="bullet-item">
-                練習在極短時間內說清「我們是誰、要什麼、為何值得」。
-              </div>
-              <div class="bullet-item">
-                被投資組要學會承擔「期待更高」的壓力，而不是只享受資源。
-              </div>
-              <div class="bullet-item">
-                未被投資組要學會在資源較少時仍維持士氣與創造力。
-              </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CARNEGIE PERSPECTIVE (NEW) -->
+    <section class="py-24 px-4 md:px-8 bg-amber-50 text-slate-800 border-b border-amber-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-amber-600 font-bold tracking-widest uppercase text-sm mb-4 block">CARNEGIE PERSPECTIVE</span>
+                <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                    卡內基式的專業評價
+                </h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+                <p class="mt-6 text-xl text-slate-600 max-w-3xl mx-auto font-bold font-serif italic">
+                    「領導不是權威，而是互動；不是角色，而是行為；不是講出來，而是被看見。」
+                </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- 可觀察領導行為 -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="icon">📊</span>
-            <span>老師與助教可觀察的 10 種關鍵領導行為</span>
-          </div>
-          <div class="section-sub">
-            觀察重點不在誰講最久、做最多，而在誰讓團隊變得更好。
-          </div>
-        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Point 1 -->
+                <div class="carnegie-card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-4 text-amber-600">🛠️</div>
+                    <h4 class="text-xl font-bold mb-3 text-amber-900">真正「做出」領導</h4>
+                    <p class="text-slate-700 leading-relaxed">
+                        人類從做中學，而不是從被告知中學。使命清楚、限制真實、時間緊迫，這些結構會自然逼出領導行為，而不是講義裡的漂亮話。
+                    </p>
+                </div>
+                <!-- Point 2 -->
+                <div class="carnegie-card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-4 text-amber-600">🧠</div>
+                    <h4 class="text-xl font-bold mb-3 text-amber-900">深度的「人性」設計</h4>
+                    <p class="text-slate-700 leading-relaxed">
+                        只有不確定、不公平、有限資源，才能讓領導力自然被激發。這門課真正把「領導的生成條件」設計了進去，這是教學的藝術。
+                    </p>
+                </div>
+                <!-- Point 3 -->
+                <div class="carnegie-card p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-4 text-amber-600">✨</div>
+                    <h4 class="text-xl font-bold mb-3 text-amber-900">關鍵能力的完整覆蓋</h4>
+                    <p class="text-slate-700 leading-relaxed">
+                        完整覆蓋卡內基三大關鍵能力：人際關係、溝通表達、領導決策。在混亂中凝聚人心、在限制中做出選擇。
+                    </p>
+                </div>
+            </div>
 
-        <div class="bullet-list">
-          <div class="bullet-item">能問出關鍵問題，幫團隊釐清目標與決策方向。</div>
-          <div class="bullet-item">分工清楚、語氣篤定，讓團隊節奏穩定推進。</div>
-          <div class="bullet-item">適時鼓舞士氣，在受挫時把注意力拉回任務。</div>
-          <div class="bullet-item">敢主動與其他組談判、交換資源、協調動線。</div>
-          <div class="bullet-item">用簡潔語言收斂討論，說清楚「我們到底在做什麼」。</div>
-          <div class="bullet-item">敏感察覺時間、材料與風險，及早提醒與調整。</div>
-          <div class="bullet-item">懂得排序優先順序，知道什麼可以先放掉。</div>
-          <div class="bullet-item">接得住不同意見，不急著否定，而是整合。</div>
-          <div class="bullet-item">遇到卡關時，不抱怨，而是提出具體可行方案。</div>
-          <div class="bullet-item">能站在全局視角，看見城市、台灣館與本組之間的關係。</div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl border-l-8 border-amber-500 max-w-4xl mx-auto">
+                <div class="text-5xl text-amber-400 opacity-50 font-serif mb-4">“</div>
+                <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">
+                    這是一門讓主管脫掉頭銜、露出真本事的課。許多主管在這堂課裡第一次真正看到自己的領導盲點，而這，就是成長的開始。
+                </p>
+                <div class="flex items-center mt-6">
+                    <div class="w-12 h-12 rounded-full bg-amber-200 flex items-center justify-center text-xl shadow mr-4">🤝</div>
+                    <div>
+                        <div class="font-bold text-lg text-slate-900">戴爾·卡內基 (模擬語氣)</div>
+                        <div class="text-sm text-slate-500 font-bold uppercase">人際關係學大師</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- FOOTER -->
-      <footer class="footer">
-        <div>
-          《看見領導力：打造我們的世界博覽會》｜國立政治大學 EMBA 領導與團隊課程設計案
+    <!-- SECTION: INSTRUCTORS -->
+    <section id="instructors" class="py-20 px-4 md:px-8 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">授課顧問陣容</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Instructor 1: 吳靜吉博士 -->
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <img src="https://raw.githubusercontent.com/airchin/emba/49f09855f173271afbea657309a57a8f2db5ece2/lecturer_2024021617194701.jpg" alt="吳靜吉博士" class="w-32 h-32 rounded-full object-cover object-top flex-shrink-0 border-4 border-white shadow">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold text-slate-900">吳靜吉博士</h3>
+                        <p class="text-blue-600 font-medium mb-2">政大 名譽教授</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            專長教育心理、創造力、多元智慧、組織與團隊創新。自 1970 年代起即為華人創造力研究的重要推手，也是政大 EMBA「創意 × 戲劇 × 管理」教學法的奠基者。在本次課程中，負責課程精神定調、願景形成引導與團隊行為洞察。
+                        </p>
+                    </div>
+                </div>
+                <!-- Instructor 2: 黃家齊 -->
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <img src="https://raw.githubusercontent.com/airchin/emba/49f09855f173271afbea657309a57a8f2db5ece2/20230921-07.jpg" alt="黃家齊教授" class="w-32 h-32 rounded-full object-cover object-top flex-shrink-0 border-4 border-white shadow">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold text-slate-900">黃家齊</h3>
+                        <p class="text-blue-600 font-medium mb-2">政大 特聘教授/商學院院長</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            專長策略管理、組織領導、跨學院整合。長期推動政大 EMBA 的跨域與國際化教學。在本課程中，黃院長擔任 S 級 Angel 投資人與制度共同設計者，負責資源制度啟動、領導判讀及組織層級視角引導。
+                        </p>
+                    </div>
+                </div>
+                <!-- Instructor 3: 鄭至甫 -->
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <img src="https://raw.githubusercontent.com/airchin/emba/49f09855f173271afbea657309a57a8f2db5ece2/EMBA_v3.jpg" alt="鄭至甫教授" class="w-32 h-32 rounded-full object-cover object-top flex-shrink-0 border-4 border-white shadow">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold text-slate-900">鄭至甫</h3>
+                        <p class="text-blue-600 font-medium mb-2">政大 科管智財所 教授</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            專長服務創新、設計思考與科技管理。在本課程中擔任「創新與資源策略顧問」，引導學員如何在資源受限下進行「破壞式創新」，並運用系統思考解決跨組整合難題。
+                        </p>
+                    </div>
+                </div>
+                <!-- Instructor 4: 王亞維 -->
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <img src="https://raw.githubusercontent.com/airchin/emba/49f09855f173271afbea657309a57a8f2db5ece2/S__27754557.jpg" alt="王亞維教授" class="w-32 h-32 rounded-full object-cover object-top flex-shrink-0 border-4 border-white shadow">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold text-slate-900">王亞維</h3>
+                        <p class="text-blue-600 font-medium mb-2">政大 廣電系 專任助理教授</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            資深紀錄片製作人，專長影視製作與敘事傳播。在本課程中負責「敘事溝通」與「展館策展」，教導學員如何用一分鐘說好一個國家的故事，並在變局中進行有效的對外溝通。
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <div class="footer-pill">搭配：導師手冊、助教觀察表、Angel 投資指引</div>
-          <div class="footer-pill">評量焦點：行為證據 × 團隊歷程 × 領導覺醒</div>
+    </section>
+
+    <!-- SECTION: TESTIMONIALS -->
+    <section id="testimonials" class="py-20 px-4 md:px-8 bg-slate-800 text-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">各界名人分享</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-700 p-8 rounded-2xl relative border border-slate-600">
+                    <div class="text-6xl text-orange-400 absolute top-4 left-4 opacity-30 font-serif">“</div>
+                    <p class="text-slate-300 italic mb-6 pt-8 relative z-10 text-lg leading-relaxed">
+                        這堂課讓我重新定義了領導力。在資源匱乏的壓力下，我才真正看見自己面對衝突時的決策盲點。這不只是模擬，而是真實的修煉場。
+                    </p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-500 flex-shrink-0 mr-3 flex items-center justify-center text-sm font-bold">A</div>
+                        <div>
+                            <h4 class="font-bold text-white">科技業 高階主管</h4>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide">EMBA 學員</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-700 p-8 rounded-2xl relative border border-slate-600">
+                    <div class="text-6xl text-orange-400 absolute top-4 left-4 opacity-30 font-serif">“</div>
+                    <p class="text-slate-300 italic mb-6 pt-8 relative z-10 text-lg leading-relaxed">
+                        從單打獨鬥到共構世界城市，這個過程極其痛苦卻也極其珍貴。它強迫我們跳出本位主義，去思考什麼才是對整體最好的決定。
+                    </p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-500 flex-shrink-0 mr-3 flex items-center justify-center text-sm font-bold">B</div>
+                        <div>
+                            <h4 class="font-bold text-white">金融業 資深副總</h4>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide">EMBA 學員</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-700 p-8 rounded-2xl relative border border-slate-600">
+                    <div class="text-6xl text-orange-400 absolute top-4 left-4 opacity-30 font-serif">“</div>
+                    <p class="text-slate-300 italic mb-6 pt-8 relative z-10 text-lg leading-relaxed">
+                        天使投資人的回饋非常犀利，直接點出了我們團隊表面和諧但執行力低落的問題。這是一堂讓人清醒的領導力實戰課。
+                    </p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-500 flex-shrink-0 mr-3 flex items-center justify-center text-sm font-bold">C</div>
+                        <div>
+                            <h4 class="font-bold text-white">傳產製造業 總經理</h4>
+                            <p class="text-xs text-slate-400 uppercase tracking-wide">EMBA 學員</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </footer>
-    </main>
-  </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-16 border-t border-slate-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-10">準備好挑戰真實的領導力了嗎？</h2>
+            <div class="flex justify-center space-x-16 mb-10">
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-blue-400">3</span>
+                    <span class="text-base text-slate-300">小時實戰</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-orange-400">16</span>
+                    <span class="text-base text-slate-300">組團隊競合</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-5xl font-black text-teal-400">1</span>
+                    <span class="text-base text-slate-300">座世界城市</span>
+                </div>
+            </div>
+            <p class="text-slate-500 text-base font-bold">
+                國立政治大學 EMBA 領導與團隊課程提案 | 台灣世界博覽會模擬
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 設定 Chart.js 全域字體大小
+        Chart.defaults.font.size = 14;
+        Chart.defaults.font.family = "'Microsoft JhengHei', '微軟正黑體', sans-serif";
+
+        const tooltipCallbackConfig = {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            }
+        };
+
+        // --- Chart 1: Leadership Shift (Left Side - Bar Chart) ---
+        const ctxShift = document.getElementById('leadershipShiftChart').getContext('2d');
+        new Chart(ctxShift, {
+            type: 'bar', // Reverted to BAR chart
+            data: {
+                labels: ['SOP 執行力', '風險控制', '願景定義', '模糊適應力', '跨界整合', '行為影響力'],
+                datasets: [
+                    {
+                        label: '傳統管理需求 (2010)',
+                        data: [90, 85, 40, 30, 40, 50],
+                        backgroundColor: 'rgba(148, 163, 184, 0.5)', 
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '未來領導需求 (2025+)',
+                        data: [30, 40, 95, 90, 85, 95],
+                        backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 14 } } },
+                    tooltip: { callbacks: tooltipCallbackConfig, bodyFont: { size: 14 }, titleFont: { size: 16 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100, title: { display: true, text: '重要性權重 (%)', font: { size: 16, weight: 'bold' } }, ticks: { font: { size: 14 } } },
+                    x: { ticks: { font: { size: 14, weight: 'bold' } } }
+                }
+            }
+        });
+
+        // --- Chart 2 (Right Side) is now HTML/CSS Competency Cards, no JS needed for it ---
+
+        const ctxJourney = document.getElementById('teamJourneyChart').getContext('2d');
+        new Chart(ctxJourney, {
+            type: 'line',
+            data: {
+                labels: ['啟動 (0m)', '願景形成 (30m)', '國家反轉 (45m)', '團隊重組 (90m)', '最終成果 (150m)'],
+                datasets: [{
+                    label: '團隊績效與清晰度',
+                    data: [20, 60, 15, 50, 95],
+                    borderColor: '#F97316',
+                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#F97316',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { 
+                        callbacks: tooltipCallbackConfig,
+                        mode: 'index',
+                        intersect: false,
+                        bodyFont: { size: 14 },
+                        titleFont: { size: 16 }
+                    }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100,
+                        title: { display: true, text: '心理安全感 / 績效', font: { size: 16, weight: 'bold' } },
+                        grid: { borderDash: [5, 5] },
+                        ticks: { font: { size: 14 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 14, weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+        const ctxAngel = document.getElementById('angelCriteriaChart').getContext('2d');
+        // 建立漸層背景
+        let gradientAngel = ctxAngel.createRadialGradient(250, 250, 0, 250, 250, 200);
+        gradientAngel.addColorStop(0, 'rgba(124, 58, 237, 0.5)'); // Deep purple center
+        gradientAngel.addColorStop(1, 'rgba(124, 58, 237, 0.1)'); // Fading out
+
+        new Chart(ctxAngel, {
+            type: 'radar',
+            data: {
+                labels: ['願景清晰', '協作氛圍', '決策果斷', '挫折復原', '系統思考'],
+                datasets: [
+                    {
+                        label: '獲投團隊 (High Perf.)',
+                        data: [90, 85, 85, 95, 90],
+                        fill: true,
+                        backgroundColor: 'rgba(124, 58, 237, 0.4)', // Slightly transparent purple
+                        borderColor: '#7C3AED',
+                        pointBackgroundColor: '#7C3AED',
+                        pointBorderColor: '#fff',
+                        pointRadius: 5
+                    },
+                    {
+                        label: '一般團隊 (Average)',
+                        data: [60, 50, 40, 45, 50], // Lower scores showing gaps
+                        fill: true,
+                        backgroundColor: 'rgba(148, 163, 184, 0.2)', // Grayish
+                        borderColor: '#94A3B8',
+                        pointBackgroundColor: '#94A3B8',
+                        pointBorderColor: '#fff',
+                        pointRadius: 4,
+                        borderDash: [5, 5]
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'bottom', labels: { font: { size: 12 } } }, // Show legend
+                    tooltip: { callbacks: tooltipCallbackConfig, bodyFont: { size: 14 }, titleFont: { size: 16 } }
+                },
+                scales: {
+                    r: {
+                        angleLines: { display: true, color: 'rgba(0,0,0,0.1)' },
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        pointLabels: { font: { size: 16, weight: 'bold' }, color: '#4B5563' },
+                        ticks: { display: false, backdropColor: 'transparent' } // Hide tick backdrop
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
