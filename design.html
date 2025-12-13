@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打造我們的世界博覽會 | 課程設計全案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 指定 Chart.js 版本以確保穩定性 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- 引入微軟正黑體 (透過 CSS 設定) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            /* 優先使用微軟正黑體，若無則使用 Noto Sans TC */
+            font-family: "Microsoft JhengHei", "微軟正黑體", "Noto Sans TC", sans-serif;
+            color: #2D3748;
+            background-color: #ffffff;
+            line-height: 1.8;
+        }
+        
+        /* 標題字體設定 */
+        h1, h2, h3, h4, .serif-font {
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            font-weight: 800; /* 加粗更有力道 */
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 5px;
+            background-color: #F6AD55; /* Sunny Orange */
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+        .quote-box {
+            border-left: 5px solid #F6AD55;
+            background-color: #FFFBEB; /* Very light yellow background */
+            padding: 2rem;
+            font-style: normal; /* 微軟正黑體斜體較難讀，改回正常 */
+            border-radius: 0 8px 8px 0;
+        }
+        .nav-link:hover {
+            color: #DD6B20;
+            border-bottom: 2px solid #DD6B20;
+        }
+        /* Table Styling */
+        .custom-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .custom-table th {
+            background-color: #2C5282; /* Brighter Navy */
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .custom-table td {
+            padding: 16px;
+            border-bottom: 1px solid #E2E8F0;
+            vertical-align: top;
+        }
+        .custom-table tr:last-child td {
+            border-bottom: none;
+        }
+        .custom-table tr:nth-child(even) {
+            background-color: #F7FAFC;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nccu: {
+                            blue: '#2A4365', /* Slightly lighter/warmer Navy */
+                            gold: '#ECC94B', /* Sunnier Gold */
+                            orange: '#ED8936', /* Warm accent */
+                            gray: '#F7FAFC',
+                            text: '#2D3748',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-nccu-gold/30 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-nccu-blue to-blue-600 flex items-center justify-center text-white font-bold rounded-lg shadow-md">5星</div>
+                    <span class="text-xl font-bold text-nccu-blue tracking-wide">好評隊｜課程設計</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#worldview-start" class="nav-link text-nccu-text font-bold transition py-2">世界觀起源</a>
+                    <a href="#concept" class="nav-link text-nccu-text font-bold transition py-2">設計與目標</a>
+                    <a href="#structure" class="nav-link text-nccu-text font-bold transition py-2">課程架構</a>
+                    <a href="#flow" class="nav-link text-nccu-text font-bold transition py-2">教學流程</a>
+                    <a href="#worldview-end" class="nav-link text-nccu-text font-bold transition py-2">世界觀延續</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / World View Start -->
+    <section id="worldview-start" class="pt-32 pb-24 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+        <!-- Decor: Sunny circles -->
+        <div class="absolute top-20 right-10 w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute top-40 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-nccu-orange font-bold tracking-widest uppercase mb-3 block">Course Design Project</span>
+                <h1 class="text-4xl md:text-6xl font-black text-nccu-blue mb-6 leading-tight drop-shadow-sm">
+                    打造我們的<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-nccu-blue to-blue-500">世界博覽會</span>
+                </h1>
+                <p class="text-xl text-slate-500 font-bold">課程設計：5星好評隊</p>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border-t-8 border-nccu-gold ring-1 ring-slate-100">
+                <h2 class="text-2xl font-bold text-nccu-blue mb-6 flex items-center">
+                    <span class="w-2 h-8 bg-nccu-orange mr-3 rounded-full"></span>課程世界觀─起源
+                </h2>
+                <div class="prose prose-lg text-slate-700 leading-relaxed">
+                    <p class="mb-4">各位，歡迎加入 <strong>台灣世界博覽會國際策展設計中心</strong>。</p>
+                    <p class="mb-4">在今年激烈的全球競爭中，台灣成功取得世界博覽會的主辦權，而你們——來自不同專業與背景的菁英團隊——將共同打造一座能代表台灣精神、面向世界的博覽會城市。</p>
+                    <p class="mb-4">從現在起，你們不再只是課堂上的學員，而是 <strong>主辦國與 16 個參展國的國家策展與建築設計團隊</strong>。</p>
+                    <p class="mb-4">博覽會即將開幕，但城市仍在概念階段：願景尚待提煉、策略需要聚焦、模型仍需成形，而每一座展館都必須協力構築出一個能回應台灣價值的共同城市。</p>
+                    <p class="mb-4">在接下來的三小時中，你們將面臨：<strong>高度不確定、資源不均、時間壓力、跨組協作與制度性干預</strong>。你們必須在混亂中做決策，在多元差異中尋找共識，並且在沒有頭銜、沒有授權的情況下展現領導行動。</p>
+                    <p class="mb-4">同時，你們也會在團隊互動中經歷 <strong>領導與被領導的循環歷程</strong>——在不同情境下影響他人、也被他人影響。</p>
+                    <p class="mb-4">今天，你們真正創造的，不只是一座城市模型，而是你們的 <strong>Leadership Footprint</strong> ——在真實壓力下，你選擇如何行動、如何影響、如何被記住的方式。</p>
+                    <p class="font-bold text-nccu-blue text-xl">世界博覽會的大門已經敞開，台灣正在等待你們的城市誕生。</p>
+                    <p class="font-bold text-nccu-orange text-xl">任務，現在開始。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept & Objectives -->
+    <section id="concept" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- 一、課程設計理念 -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold text-nccu-blue section-title">一、課程設計理念</h2>
+                <div class="quote-box shadow-sm">
+                    <p class="mb-4 font-medium text-lg">本課程以體驗式與情境式學習為核心，透過沉浸式的博覽會策展情境，使學員在限時、不確定與資源有限的動態任務中，讓領導行為自然浮現，並促使團隊自主形成有效的運作模式。</p>
+                    <p class="mb-4 text-slate-700">任務流程涵蓋「願景建構—協作挑戰—原型製作—展場提案」等階段，讓學員親身經歷團隊的形成、震盪、規範與表現歷程，理解團隊動力如何在壓力中逐步被塑造。</p>
+                    <p class="text-slate-700">在任務完成後，透過「團隊動力回顧與領導行為解析」環節，協助學員從實作體驗中提煉管理洞察，讓領導學習從行動落實到覺察，形成完整的學習閉環。</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <!-- 二、核心能力 + 雷達圖 -->
+                <div>
+                    <h2 class="text-2xl font-bold text-nccu-blue section-title">二、核心能力</h2>
+                    <ul class="space-y-6 mb-8">
+                        <li class="flex items-start group">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-nccu-blue flex items-center justify-center font-bold text-lg mr-4 group-hover:bg-nccu-blue group-hover:text-white transition-colors">1</span>
+                            <div>
+                                <strong class="text-nccu-blue text-lg block mb-1">協作與溝通素養</strong>
+                                <span class="text-slate-600">能有效整合資訊、促進對話交流並支持團隊順暢運作。</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-nccu-blue flex items-center justify-center font-bold text-lg mr-4 group-hover:bg-nccu-blue group-hover:text-white transition-colors">2</span>
+                            <div>
+                                <strong class="text-nccu-blue text-lg block mb-1">決策與問題解決素養</strong>
+                                <span class="text-slate-600">能在限制、壓力與不確定性中做出判斷，推動團隊前進。</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-nccu-blue flex items-center justify-center font-bold text-lg mr-4 group-hover:bg-nccu-blue group-hover:text-white transition-colors">3</span>
+                            <div>
+                                <strong class="text-nccu-blue text-lg block mb-1">領導與影響力素養</strong>
+                                <span class="text-slate-600">能透過願景敘事、啟發與支持行為提升團隊凝聚力與成效。</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-nccu-blue flex items-center justify-center font-bold text-lg mr-4 group-hover:bg-nccu-blue group-hover:text-white transition-colors">4</span>
+                            <div>
+                                <strong class="text-nccu-blue text-lg block mb-1">創新與實作素養</strong>
+                                <span class="text-slate-600">能將理念轉化為具體的策略方向、原型模型與展示成果。</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-nccu-blue flex items-center justify-center font-bold text-lg mr-4 group-hover:bg-nccu-blue group-hover:text-white transition-colors">5</span>
+                            <div>
+                                <strong class="text-nccu-blue text-lg block mb-1">團隊動力理解素養</strong>
+                                <span class="text-slate-600">能辨識團隊在不同發展階段的互動特徵、需求與挑戰。</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Chart Insert: Radar -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                        <h4 class="text-center text-nccu-blue font-bold mb-4">核心素養能力分布目標</h4>
+                        <div class="chart-container">
+                            <canvas id="competencyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 三、課程目標 + 學習表現 -->
+                <div class="space-y-16">
+                    <div>
+                        <h2 class="text-2xl font-bold text-nccu-blue section-title">三、課程目標</h2>
+                        <ul class="space-y-4 bg-yellow-50/50 p-6 rounded-xl border border-yellow-100">
+                            <li class="flex items-start">
+                                <span class="text-nccu-orange mr-3 text-xl">✦</span>
+                                <span class="text-slate-700 font-medium">理解團隊在不同發展階段的需求、挑戰與適切的領導行為。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-nccu-orange mr-3 text-xl">✦</span>
+                                <span class="text-slate-700 font-medium">運用願景敘事與啟發式領導行動，提升團隊動能與共同方向感。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-nccu-orange mr-3 text-xl">✦</span>
+                                <span class="text-slate-700 font-medium">展現在高壓與不確定情境中的協調、整合、溝通與決策能力。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-nccu-orange mr-3 text-xl">✦</span>
+                                <span class="text-slate-700 font-medium">建立從願景發展、策略收斂到原型產出與成果展示的團隊運作流程。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-nccu-orange mr-3 text-xl">✦</span>
+                                <span class="text-slate-700 font-medium">轉化課程中的團隊經驗為可應用於職場管理與領導實務的策略行動。</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 四、學習表現 -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-nccu-blue section-title mb-6">四、學習表現</h2>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-blue-500 uppercase">Forming</span>
+                                <p class="text-slate-700 font-medium mt-1">能快速建立團隊並形成基本運作方式，展現 Forming 階段的行動能力。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-yellow-600 uppercase">Storming</span>
+                                <p class="text-slate-700 font-medium mt-1">能促進團隊溝通、整合觀點，形成共識並處理衝突。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-green-600 uppercase">Norming</span>
+                                <p class="text-slate-700 font-medium mt-1">能協助團隊建立決策流程與合作模式，使運作逐步穩定。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-purple-600 uppercase">Performing</span>
+                                <p class="text-slate-700 font-medium mt-1">能推動團隊完成具策略邏輯與一致性的成果展示。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-pink-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-pink-500 uppercase">Transformation</span>
+                                <p class="text-slate-700 font-medium mt-1">能展現願景敘事、啟發能力與支持行為，促進團隊能量。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-gray-400 hover:shadow-md transition">
+                                <span class="text-xs font-bold text-gray-500 uppercase">Reflection</span>
+                                <p class="text-slate-700 font-medium mt-1">能辨識團隊中的領導行為與協作機制，並提出具體的自我改進方向。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure -->
+    <section id="structure" class="py-20 bg-blue-50/50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-nccu-blue section-title">五、課程架構</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-10">
+                <div class="lg:col-span-2">
+                    <div class="overflow-x-auto rounded-xl shadow-lg">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th class="w-20">階段</th>
+                                    <th>教學活動</th>
+                                    <th>教學時間</th>
+                                    <th>Tuckman 階段</th>
+                                    <th>教學目的</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-center bg-blue-50 text-blue-800">01</td>
+                                    <td class="font-bold text-nccu-blue">願景形成</td>
+                                    <td>30分鐘</td>
+                                    <td><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold">Forming</span></td>
+                                    <td>建立共同語言、探索角色、定義任務</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-center bg-blue-50 text-blue-800">02</td>
+                                    <td class="font-bold text-nccu-blue">國家策略</td>
+                                    <td>80分鐘</td>
+                                    <td>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold">Storming</span>
+                                        <span class="text-slate-400 mx-1">➜</span>
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">Norming</span>
+                                    </td>
+                                    <td>面對混亂、建立規範、執行策略</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-center bg-blue-50 text-blue-800">03</td>
+                                    <td class="font-bold text-nccu-blue">城市整合</td>
+                                    <td>30分鐘</td>
+                                    <td><span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-bold">Performing</span></td>
+                                    <td>展現成果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-center bg-blue-50 text-blue-800">04</td>
+                                    <td class="font-bold text-nccu-blue">閉幕</td>
+                                    <td>10分鐘</td>
+                                    <td><span class="px-2 py-1 bg-gray-200 text-gray-800 rounded-full text-xs font-bold">Adjourning</span></td>
+                                    <td>歷程意義化</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Chart Insert: Time Allocation -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center justify-center">
+                    <h4 class="text-nccu-blue font-bold mb-4">時間分配佔比</h4>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow -->
+    <section id="flow" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-nccu-blue section-title">六、教學流程</h2>
+            
+            <!-- Chart Insert: Tuckman Curve -->
+            <div class="mb-12 bg-white p-8 rounded-xl shadow-lg border border-slate-100">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 class="text-xl font-bold text-nccu-blue">預期團隊能量與壓力曲線</h4>
+                    <span class="text-sm bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-bold">動態歷程</span>
+                </div>
+                <div class="chart-container" style="height: 350px;">
+                    <canvas id="tuckmanChart"></canvas>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl shadow-lg border border-slate-200">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th class="w-1/4">節次 / 時間</th>
+                            <th class="w-1/3">教師活動</th>
+                            <th class="w-1/3">學生活動</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 0. 開場 -->
+                        <tr class="bg-slate-50">
+                            <td>
+                                <div class="font-bold text-xl text-nccu-blue">0. 開場</div>
+                                <div class="text-sm font-bold text-slate-500">(10 min)</div>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>介紹課程世界觀</li>
+                                    <li>說明任務</li>
+                                    <li>進行分組</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>建立角色代入</li>
+                                    <li>了解任務</li>
+                                    <li>完成團隊分組</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <!-- 1. 願景形成 -->
+                        <tr>
+                            <td>
+                                <div class="font-bold text-xl text-nccu-blue">1. 願景形成</div>
+                                <div class="text-sm font-bold text-slate-500">(30 min)</div>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>進行評分</li>
+                                    <li>決定台灣館隊伍</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>以台灣主辦國身分寫出一句話願景</li>
+                                    <li>決定主辦城市與世博主題</li>
+                                    <li>決定優先邀請策展國家</li>
+                                    <li>畫出 V1.0 世界觀草圖海報</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <!-- 2. 國家策略 -->
+                        <tr class="bg-slate-50">
+                            <td>
+                                <div class="font-bold text-xl text-nccu-blue">2. 國家策略</div>
+                                <div class="text-sm font-bold text-slate-500">(80 min)</div>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>導師巡場</li>
+                                    <li>天使投資</li>
+                                    <li>卡片干預</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>抽籤決定代表國家（不可交換）</li>
+                                    <li>撰寫國家館「展館理念卡」</li>
+                                    <li>Pitch爭取天使投資</li>
+                                    <li>應對卡片干預狀況</li>
+                                    <li>以 A3 板搭建立體展館模型</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <!-- 3. 城市整合 -->
+                        <tr>
+                            <td>
+                                <div class="font-bold text-xl text-nccu-blue">3. 城市整合</div>
+                                <div class="text-sm font-bold text-slate-500">(30 min)</div>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>進行評分</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>決定各環展館位置</li>
+                                    <li>每組60-90秒城市發表</li>
+                                    <li>台灣主題館+15國展館完成整合</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <!-- 4. 閉幕 -->
+                        <tr class="bg-slate-50">
+                            <td>
+                                <div class="font-bold text-xl text-nccu-blue">4. 閉幕─領導與團隊足跡地圖</div>
+                                <div class="text-sm font-bold text-slate-500">(10 min)</div>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>說明領導與團隊足跡地圖機制</li>
+                                    <li>發放足跡卡</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                    <li>團隊另約聚會，共同完成足跡卡</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- World View Outro -->
+    <section id="worldview-end" class="py-24 bg-gradient-to-br from-nccu-blue to-blue-900 text-white relative">
+         <!-- Decor: Stars/Subtle background -->
+         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+         
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-10 text-nccu-gold">課程世界觀─延續</h2>
+            
+            <div class="bg-white/10 backdrop-blur-md p-10 md:p-14 rounded-2xl text-left leading-relaxed border border-white/20 shadow-2xl">
+                <p class="mb-5 text-lg">各位國家策展與建築設計夥伴，</p>
+                <p class="mb-5 text-lg">當我們的世界博覽會城市在你們手中逐漸成形，</p>
+                <p class="mb-5 text-lg">你們已經共同完成了一項高度挑戰的使命。</p>
+                <p class="mb-5 text-lg">在這座城市裡，</p>
+                <p class="mb-5 text-lg">每一條動線、每一個展館、每一個象徵性的設計，</p>
+                <p class="mb-5 text-lg">都代表著你們的選擇、你們的協作、你們的對話與取捨。</p>
+                <p class="mb-5 text-lg">但就像我們在開場時所說的——</p>
+                <p class="mb-5 font-bold text-nccu-gold text-2xl">真正的作品，從來不只是城市。</p>
+                <p class="mb-5 text-lg">真正的作品，是你們在三個小時中留下的 <strong>領導與團隊足跡</strong>：</p>
+                
+                <ul class="list-none space-y-3 mb-8 pl-6 border-l-4 border-nccu-gold">
+                    <li class="text-lg">你如何在形成期讓團隊開始運作</li>
+                    <li class="text-lg">你如何在震盪期面對衝突、不確定與壓力</li>
+                    <li class="text-lg">你如何在規範期協助建立合作方式</li>
+                    <li class="text-lg">你如何在表現期推動成果前進</li>
+                    <li class="text-lg">你如何在領導與被領導之間流動、調整、成長</li>
+                </ul>
+
+                <p class="mb-5 text-lg">這些行為不會因為模型拆掉而消失；</p>
+                <p class="mb-5 text-lg">它們會跟著你們離開這個教室，進到下一次專案、下一次協作、下一次領導場景中。</p>
+                <p class="mb-5 text-lg">今天的城市已經誕生，</p>
+                <p class="mb-5 text-lg">但更重要的是——</p>
+                <p class="mb-5 text-lg">你們每個人都留下了一個足跡，</p>
+                <p class="mb-5 text-lg">那足跡不在桌上的模型，而是在彼此的心裡；</p>
+                <p class="mb-5 text-lg">不在世界博覽會的場館，而是在你未來的行動中。</p>
+                <p class="mb-10 text-lg">因此，我們在此正式宣告：</p>
+                
+                <div class="text-center py-8 border-y border-white/30 mb-10 bg-white/5 rounded-lg">
+                    <h3 class="text-3xl font-black tracking-widest text-white shadow-sm">台灣世界博覽會策展任務圓滿完成</h3>
+                </div>
+
+                <p class="mb-5 text-lg">而你們——</p>
+                <p class="mb-5 text-lg">將帶著彼此留下的足跡，</p>
+                <p class="mb-5 text-lg">走向下一個需要你們領導、需要你們影響力的現實場域。</p>
+                <p class="font-bold text-2xl text-nccu-gold mt-12">任務到此結束，</p>
+                <p class="font-bold text-2xl text-nccu-gold">但你們的領導旅程，現在才正要開始。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-bold tracking-wider mb-2">5星好評隊 © 2025</p>
+            <p class="text-sm">政治大學 EMBA 課程設計提案</p>
+        </div>
+    </footer>
+
+    <!-- Chart Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Common Font Setting for Charts
+            Chart.defaults.font.family = "'Microsoft JhengHei', '微軟正黑體', 'Noto Sans TC', sans-serif";
+            Chart.defaults.color = '#4A5568';
+            
+            // 1. Radar Chart: Competencies
+            const competencyEl = document.getElementById('competencyChart');
+            if (competencyEl) {
+                const ctxCompetency = competencyEl.getContext('2d');
+                new Chart(ctxCompetency, {
+                    type: 'radar',
+                    data: {
+                        labels: ['協作與溝通', '決策與問題解決', '領導與影響力', '創新與實作', '團隊動力理解'],
+                        datasets: [{
+                            label: '目標能力',
+                            data: [90, 85, 95, 80, 85],
+                            backgroundColor: 'rgba(237, 137, 54, 0.2)', // Orange transparency
+                            borderColor: '#ED8936', // Orange
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#2C5282', // Navy
+                            borderWidth: 2,
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: '#E2E8F0' },
+                                grid: { color: '#E2E8F0' },
+                                pointLabels: {
+                                    color: '#2C5282',
+                                    font: { size: 12, weight: 'bold' }
+                                },
+                                ticks: { display: false, backdropColor: 'transparent' },
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // 2. Doughnut Chart: Time Allocation
+            const timeEl = document.getElementById('timeChart');
+            if (timeEl) {
+                const ctxTime = timeEl.getContext('2d');
+                new Chart(ctxTime, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['願景形成 (30m)', '國家策略 (80m)', '城市整合 (30m)'],
+                        datasets: [{
+                            data: [30, 80, 30],
+                            backgroundColor: [
+                                '#90CDF4', // Light Blue
+                                '#2C5282', // Navy
+                                '#ECC94B'  // Gold
+                            ],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '65%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { usePointStyle: true, padding: 15 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 3. Line Chart: Tuckman Curve
+            const tuckmanEl = document.getElementById('tuckmanChart');
+            if (tuckmanEl) {
+                const ctxTuckman = tuckmanEl.getContext('2d');
+                new Chart(ctxTuckman, {
+                    type: 'line',
+                    data: {
+                        labels: ['開場', '願景形成 (Forming)', '策略階段 (Storming)', '規範建立 (Norming)', '城市整合 (Performing)', '閉幕'],
+                        datasets: [{
+                            label: '團隊張力與能量',
+                            data: [20, 50, 95, 65, 90, 40],
+                            borderColor: '#ED8936', // Orange
+                            backgroundColor: 'rgba(237, 137, 54, 0.2)', // Slightly darker for visibility
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: 'origin', // Explicit fill instruction
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#2C5282',
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                display: false, // Hides axis numbers but keeps grid unless grid.display is false
+                                suggestedMax: 100 // Ensures the chart has height even if labels are hidden
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { weight: 'bold' } }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#2C5282',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                padding: 10,
+                                displayColors: false
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
