@@ -1,0 +1,41 @@
+name: Publish KGG approved HTML once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-kgg-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download approved HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-cdd4-8206-b4db-22a1c78ed955/raw?se=2026-10-28T01%3A26%3A10Z&sp=r&sv=2026-02-06&sr=b&scid=efcdc525-9cd0-5986-8bed-ad6c9f027dc4&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-27T23%3A50%3A18Z&ske=2026-10-28T23%3A50%3A18Z&sks=b&skv=2026-02-06&sig=NPD/kiGoZ80RlHrtv9QuOXNhcpw%2BokrhViUUV/RlDXg%3D' -o KGG_Strategic_Observation.html
+          test "$(wc -c < KGG_Strategic_Observation.html)" -eq 5933594
+          grep -q '<title>KGG Strategic Observation</title>' KGG_Strategic_Observation.html
+
+      - name: Commit approved HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add KGG_Strategic_Observation.html
+          if git diff --cached --quiet; then
+            echo 'No change needed.'
+            exit 0
+          fi
+          git commit -m 'Publish approved KGG Strategic Observation page'
+          git push origin HEAD:main
