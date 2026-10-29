@@ -1,0 +1,80 @@
+360px}
+  .timeline,.upgrade-grid,.battles{grid-template-columns:1fr}
+  .map-frame,.fit-grid{grid-template-columns:1fr}
+  .cap-grid{grid-template-columns:1fr}
+  .metric-strip{grid-template-columns:1fr}
+  .engine{grid-template-columns:1fr}.engine-target{text-align:left}
+  .puzzle{grid-template-columns:1fr 1fr}.sources{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+<a href="#cover"><b>00</b>Overview</a>
+<a href="#history"><b>01</b>History</a>
+<a href="#upgrade"><b>02</b>Upgrade</a>
+<a href="#market"><b>03</b>Market</a>
+<a href="#pressure"><b>04</b>Pressure</a>
+<a href="#taiwan"><b>05</b>Taiwan</a>
+<a href="#mystery"><b>06</b>Unknown</a>
+<a href="#battle"><b>07</b>Battle</a>
+<a href="#engines"><b>08</b>Engines</a>
+<a href="#questions"><b>09</b>Questions</a>
+</nav>
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="page">
+<section class="cover" id="cover">
+  <div>
+    <div class="kicker">DBS STRATEGIC OBSERVATION • NCCU EMBA REFERENCE</div>
+    <h1>From Development Bank to <em>AI-Fuelled Asian Financial Platform</em></h1>
+    <p class="deck">星展真正值得看的，不是「數位銀行做得很好」，而是它如何把 <b>國家發展銀行的任務型能力</b>，一路升級成區域銀行、數位銀行、資料／AI 銀行，再用 <b>One Bank</b> 把企業金融、交易銀行、財富管理與個人金融串成同一個客戶經營系統。</p>
+    <div class="thesis">
+      <b>CORE THESIS</b>
+      <span>Development Mandate → Asian Scale → Digital Core → Data / AI → One Bank → Wealth & Cross-border Platform</span>
+    </div>
+  </div>
+  <div class="brand-card">
+    <div>
+      <div class="spark"></div>
+      <div class="dbs">DBS</div>
+      <div class="sub">LIVE MORE, BANK LESS</div>
+    </div>
+    <div class="metric-strip">
+      <div><strong>SGD 3.08B</strong><span>2Q 2026 net profit</span></div>
+      <div><strong>SGD 516B</strong><span>Wealth AUM, 2Q 2026</span></div>
+      <div><strong>39%</strong><span>Cost-income ratio, 2Q 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">01 • HISTORY ARCHIVE</div>
+    <h2>Historical Transformation Timeline</h2>
+    <p>不是把年份排成企業沿革，而是只抓「能力發生跳躍」的節點：每一次跳躍，都改變星展下一階段可以做什麼。</p>
+  </div>
+  <div class="timeline">
+    <div class="timecard"><div class="year">1968</div><h3>Development Bank of Singapore</h3><p>由 EDB 團隊成立，核心任務是為新加坡工業化提供資本。起點不是零售銀行，而是「支撐國家產業升級」的企業金融 DNA。</p></div>
+    <div class="timecard"><div class="year">1998</div><h3>POSB Acquisition</h3><p>收購 POSB，從企業金融強者取得大規模零售存款與家庭客群，建立低成本資金與全民金融入口。</p></div>
+    <div class="timecard"><div class="year">2001</div><h3>Hong Kong Scale</h3><p>收購 Dao Heng Bank，香港成為第二核心市場；DBS 開始從「新加坡銀行」走向真正的泛亞洲銀行。</p></div>
+    <div class="timecard"><div class="year">2009</div><h3>Piyush Gupta Era</h3><p>接手時，DBS 在新加坡銀行客戶滿意度墊底。後來的數位轉型，本質上是從客戶體驗與組織模式重新設計銀行。</p></div>
+    <div class="timecard hot"><div class="year">2014</div><h3>Digital Transformation</h3><p>正式啟動全面數位轉型，導入 journey thinking、startup mindset、AI pilot、PayLah! 與大規模科技投資。</p></div>
+    <div class="timecard"><div class="year">2016</div><h3>Digital Bank Recognition</h3><p>digibank 在印度推出，同年獲 Euromoney「World’s Best Digital Bank」。數位能力從內部轉型變成外部競爭優勢。</p></div>
+    <div class="timecard"><div class="year">2023</div><h3>Citi Taiwan Acquisition</h3><p>完成花旗台灣消金業務收購，客戶超過 110 萬、信用卡超過 300 萬張，星展成為台灣資產規模最大外商銀行。</p></div>
+    <div class="timecard hot"><div class="year">2025–26</div><h3>AI + Wealth + One Bank</h3><p>陳淑珊接任 CEO；AI/ML 年經濟價值約 SGD 10 億。至 2Q 2026，財富 AUM 突破 SGD 5,000 億。</p></div>
+  </div>
+  <div class="timeline-note"><b>觀察：</b> DBS 的每一次重大升級都不是「多一個產品」，而是多一個能被全行重複使用的能力：零售資金池、區域據點、數位核心、資料與 AI、最後是跨事業的 One Bank 協同。</div>
+</div>
+</section>
+
+<section class="section" id="upgrade">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">02 • BUSINESS UPGRADE</div>
+    <h2>Business Identity 升級</h2>
+    <p>把星展看成六次「身份改寫」。這比只談數位轉型更完整，因為今天的 AI 與財富管理能力，是建立在前面五次能力積累之上。</p>
+  </div>
+  <div class="upgrade-grid">
+    <div class="up"><div class="n">01</div><h3>Development Financier</h3><span class="yr">1968</span><p>服務國家產業化與大型企業，形成企業金融、產業理解
