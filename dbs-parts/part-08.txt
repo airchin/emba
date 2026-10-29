@@ -1,0 +1,37 @@
+/i></div></div><div class="engine-target"><strong>SGD 516B</strong><span>Wealth AUM<br>2Q 2026</span></div></div>
+    <div class="engine"><div class="engine-id"><div class="disc">1B</div><div><b>One Bank</b><span>CROSS-BUSINESS</span></div></div><div class="engine-main"><h3>企業主是最天然的交叉銷售樞紐</h3><p>約 70% HNW 客戶是企業主。企業金融、cash、FX、capital markets 與個人財富整合，形成其他純 private bank 難複製的關係深度。</p><div class="engine-line"><i style="width:88%"></i></div></div><div class="engine-target"><strong>70%</strong><span>HNW clients are<br>entrepreneurs / owners</span></div></div>
+    <div class="engine"><div class="engine-id"><div class="disc">AI</div><div><b>AI</b><span>INTELLIGENCE LAYER</span></div></div><div class="engine-main"><h3>把 AI 變成銀行的「共用生產力層」</h3><p>真正價值不只在 chatbot，而是 KYC、RM、SME、FX、風控、內部搜尋、coding 等流程都共享 AI capability。</p><div class="engine-line"><i style="width:94%"></i></div></div><div class="engine-target"><strong>SGD 1B</strong><span>2025 AI / analytics<br>economic value</span></div></div>
+    <div class="engine"><div class="engine-id"><div class="disc">X</div><div><b>Cross-border</b><span>ASIAN CORRIDORS</span></div></div><div class="engine-main"><h3>把企業流、資金流與財富流串成同一張亞洲網</h3><p>Singapore / Hong Kong wealth hubs，加上台灣、中國、印度、印尼的企業與零售基礎，使 DBS 能承接亞洲內部資金重新配置。</p><div class="engine-line"><i style="width:84%"></i></div></div><div class="engine-target"><strong>6</strong><span>核心亞洲市場<br>協同而非各自為戰</span></div></div>
+  </div>
+  <div class="engine-foot"><b>Portfolio Logic：</b> Wealth 提高 fee income；One Bank 提高 wallet share；AI 提高 productivity / personalisation；Cross-border 提高區域壁壘。四個引擎同時轉，才是 DBS 的結構性優勢。</div>
+</div>
+</section>
+
+<section class="section" id="questions">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">09 • FIELD QUESTIONS</div>
+    <h2>參訪時真正值得問的 6 題</h2>
+    <p>不是問官網找得到的答案，而是問「管理層怎麼做取捨」。每一題都設計成能逼出 operating model、KPI 或決策邊界。</p>
+  </div>
+  <div class="qoverview">
+    <div class="qcard"><div class="cat">STRATEGY 01</div><h3>當淨息差進入下行週期，DBS 內部怎麼判斷 Wealth / Treasury / Transaction Banking 已經足以「結構性」降低利率依賴，而不只是短期補上收入缺口？</h3><p>想聽的是收入 mix、客戶 wallet share 與跨週期指標，而不是「我們會持續發展財富管理」。</p><div class="probe"><b>追問：</b> 哪一個 KPI 最能證明這個轉換已經完成？</div></div>
+    <div class="qcard"><div class="cat">STRATEGY 02</div><h3>台灣花旗收購已把規模買進來；三年後，DBS 如何定義「整合成功」：客戶留存、AUM、fee income、product holding，還是 One Bank penetration？</h3><p>把「系統整合成功」與「商業模式升級成功」分開問。</p><div class="probe"><b>追問：</b> 哪一項 synergies 原本低估？哪一項高估？</div></div>
+    <div class="qcard"><div class="cat">GOVERNANCE 03</div><h3>2023 technology disruptions 之後，DBS 做了大量韌性治理。現在怎麼避免新的 control layer 讓 innovation speed 重新變慢？</h3><p>這是大型企業最難的雙元管理：control 並不天然與 agility 相容。</p><div class="probe"><b>追問：</b> 哪些 change 可以自動放行？哪些一定要升級審查？</div></div>
+    <div class="qcard"><div class="cat">AI 04</div><h3>當 AI model 本身越來越 commodity，DBS 認為真正不可複製的 AI moat 是 proprietary data、workflow integration、model governance，還是人才與組織學習速度？</h3><p>逼出 DBS 自己對「AI 優勢來源」的排序。</p><div class="probe"><b>追問：</b> 如果只能投資其中一項，會選哪一項？</div></div>
+    <div class="qcard"><div class="cat">AI 05</div><h3>Agentic AI 從「給建議」走向「幫客戶／員工執行」時，DBS 用什麼原則決定 human-in-the-loop 的邊界？</h3><p>銀行最核心不是能不能自動化，而是責任可以自動化到什麼程度。</p><div class="probe"><b>追問：</b> 哪一類 use case 目前明確不允許 agent 自主執行？</div></div>
+    <div class="qcard"><div class="cat">LEADERSHIP 06</div><h3>Tan Su Shan 接任後，DBS 已從「Piyush 的 transformation story」進入下一個領導週期。哪些東西必須守住，哪些東西反而必須故意打破？</h3><p>成功企業的最大風險通常不是不知道怎麼轉型，而是上一輪成功模式變成新的路徑依賴。</p><div class="probe"><b>追問：</b> 2026–2030 最想改掉 DBS 哪一個既有習慣？</div></div>
+  </div>
+  <div class="qfoot"><b>現場打法：</b> 不要連問六題。先用 1 句公開資料證據建立可信度，再丟 1 個取捨問題；若回答偏 PR，再用「那你們用哪個 KPI / decision rule 判斷？」把問題拉回管理機制。</div>
+</div>
+</section>
+
+<section class="section" id="sources">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">SOURCE NOTES</div>
+    <h2>Public-source basis</h2>
+    <p>此版本供 EMBA 參訪前策略討論使用。數字與事實採 DBS 官方資料；策略判讀與問題設計則是基於公開資訊的分析，不代表 DBS 官方立場。</p>
+  </div>
+  <div class="sources">
+    <div class="source"><b>DBS 2Q / 1H 2026 Results</b>Record net profit SGD 3.08B; wealth 
