@@ -1,0 +1,59 @@
+<h3>買到規模，不等於買到深度</h3>
+      <p>花旗交易已經把「客戶數」問題解掉；台灣現在最值得問的是：DBS 能不能用 AI、RM 與 One Bank，把原 Citi 客群的 product holding、AUM、fee income、企業主關係持續拉高。</p>
+      <div class="big">如果答案是可以，台灣就不只是成功併購，而會變成 DBS 未來在亞洲做「inorganic scale → relationship deepening」的模板。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="mystery">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">06 • THE STRATEGIC UNKNOWN</div>
+    <h2>AI-Fuelled Bank 的下一個悖論</h2>
+    <p>AI 能提高生產力，但銀行賣的終究是信任。當 AI 進入更多決策、顧問與營運流程，DBS 必須同時把「速度」與「可控性」拉高。</p>
+  </div>
+  <div class="mystery">
+    <div class="mbox">
+      <h3>我們已知的</h3>
+      <div class="fact"><b>AI 已不是實驗</b>2025 超過 2,000 個模型、430+ use cases，創造約 SGD 10 億經濟價值。</div>
+      <div class="fact"><b>GenAI 已進工作流</b>DBS-GPT 全員化，KYC name screening 約提升 70% 效率，coding assistant 可降低部分 coding time 約 20%。</div>
+      <div class="fact"><b>AI 已進客戶經營</b>財富 nudges、SME / FX、customer journeys 都在使用 AI / ML。</div>
+    </div>
+    <div class="orb"><div><strong>?</strong><span>TRUST<br>AT SCALE</span></div></div>
+    <div class="mbox">
+      <h3>真正未知的</h3>
+      <div class="fact"><b>Agentic AI 到哪裡可以自動決策？</b>從「建議」跨到「執行」後，責任邊界會改變。</div>
+      <div class="fact"><b>人與 AI 如何重新分工？</b>RM、營運、風控的價值會從資訊處理轉向判斷、信任與例外管理。</div>
+      <div class="fact"><b>模型優勢能維持多久？</b>當同業都能買到相同 foundation model，差異化會回到 proprietary data、workflow 與組織學習速度。</div>
+    </div>
+  </div>
+  <div class="mq">高階問題：<b>DBS 的真正 AI moat 是模型本身，還是「資料 × workflow × governance × customer relationship」形成的複合能力？</b></div>
+</div>
+</section>
+
+<section class="section" id="battle">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">07 • FOUR BATTLEFIELDS</div>
+    <h2>真正要打的 4 場仗</h2>
+    <p>不是列風險，而是把每個壓力轉成「必須做出的管理選擇」。這四場仗彼此牽動，任何一場單獨優化都可能犧牲另一場。</p>
+  </div>
+  <div class="battles">
+    <div class="battle red"><div class="num">BATTLE 01</div><h3>From NIM to Fees</h3><div class="mission">收益結構重建</div><dl><div><dt>Problem</dt><dd>降息使淨息差回落。</dd></div><div><dt>Move</dt><dd>財富、Treasury、交易銀行、投行與 cards fee 拉高非息收入。</dd></div><div><dt>Win Condition</dt><dd>在利率下行仍維持高 ROE 與收入成長。</dd></div></dl><div class="attack">反方攻擊：Fee income 也會受市場情緒影響；「降低利率敏感度」不代表「降低景氣敏感度」。</div></div>
+    <div class="battle blue"><div class="num">BATTLE 02</div><h3>Innovation vs Resilience</h3><div class="mission">速度與穩定性同時成立</div><dl><div><dt>Problem</dt><dd>數位規模越大，故障的聲譽與監管成本越高。</dd></div><div><dt>Move</dt><dd>技術治理、架構簡化、change / incident management。</dd></div><div><dt>Win Condition</dt><dd>創新速度恢復，但 service availability 不退步。</dd></div></dl><div class="attack">反方攻擊：韌性治理愈重，可能重新把銀行拖回「慢但安全」的舊模式。</div></div>
+    <div class="battle gold"><div class="num">BATTLE 03</div><h3>AI Scale vs Human Trust</h3><div class="mission">把人從處理搬到判斷</div><dl><div><dt>Problem</dt><dd>AI 對效率有巨大價值，但金融決策高度受監管。</dd></div><div><dt>Move</dt><dd>PURE、AI governance、human-in-the-loop、Agentic AI 分層授權。</dd></div><div><dt>Win Condition</dt><dd>客戶感受到更快、更準，而不是更黑箱。</dd></div></dl><div class="attack">反方攻擊：如果 AI 最後仍要大量人工覆核，經濟價值可能被治理成本吃掉。</div></div>
+    <div class="battle green"><div class="num">BATTLE 04</div><h3>Regional Scale vs Local Depth</h3><div class="mission">One Bank 跨市場複製</div><dl><div><dt>Problem</dt><dd>市場法規與客群差異大，難用單一模型複製。</dd></div><div><dt>Move</dt><dd>中央能力平台 + local execution；以台灣、印度等市場驗證。</dd></div><div><dt>Win Condition</dt><dd>每個市場不需重建一套銀行，仍可形成深度客戶關係。</dd></div></dl><div class="attack">反方攻擊：協同往往是總部語言；客戶真正感受到的仍可能是產品線分割。</div></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="engines">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">08 • GROWTH ENGINES</div>
+    <h2>下一階段的 4 個 Growth Engines</h2>
+    <p>DBS 已經不是靠單一產品長大。真正能持續複利的，是四個彼此增強的成長引擎。</p>
+  </div>
+  <div class="engines">
+    <div class="engine"><div class="engine-id"><div class="disc">W</div><div><b>Wealth</b><span>ASIA WEALTH HUB</span></div></div><div class="engine-main"><h3>把存款客戶沿 wealth ladder 往上推</h3><p>2025 財富管理收入創新高；到 2Q 2026 AUM 達 SGD 516B。DBS 的強項是從大零售客群中持續升級出 Treasures 與 Private Bank 客戶。</p><div class="engine-line"><i style="width:92%"><
