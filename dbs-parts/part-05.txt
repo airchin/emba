@@ -1,0 +1,45 @@
+與長期資本配置能力。</p><div class="to">→ Corporate DNA</div></div>
+    <div class="up"><div class="n">02</div><h3>Universal Bank</h3><span class="yr">1998</span><p>POSB 帶來零售規模、存款基礎與全民金融入口，資產負債表更具韌性。</p><div class="to">→ Funding Scale</div></div>
+    <div class="up"><div class="n">03</div><h3>Pan-Asian Bank</h3><span class="yr">2001–13</span><p>香港、中國、印度、印尼等市場擴張，形成亞洲跨境企業與財富客戶網絡。</p><div class="to">→ Regional Network</div></div>
+    <div class="up"><div class="n">04</div><h3>Digital Bank</h3><span class="yr">2014–20</span><p>不只把服務搬上 App，而是重構 customer journey、敏捷組織、科技架構與績效衡量。</p><div class="to">→ Digital Operating Model</div></div>
+    <div class="up"><div class="n">05</div><h3>Data / AI Bank</h3><span class="yr">2021–25</span><p>AI/ML 模型進入風險、行銷、財富、企業金融與營運流程；2025 超過 2,000 個模型、430+ use cases。</p><div class="to">→ Intelligence at Scale</div></div>
+    <div class="up"><div class="n">06</div><h3>One Bank Platform</h3><span class="yr">2025–26</span><p>把企業主的公司金融、交易、避險、個人財富、家族需求視為同一個關係，而非不同產品線。</p><div class="to">→ Wallet Share Platform</div></div>
+  </div>
+  <div class="upgrade-end">真正的終局不是「數位銀行」；而是 <span>用 AI 驅動、跨事業協同的亞洲金融平台</span>。</div>
+</div>
+</section>
+
+<section class="section" id="market">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">03 • MARKET POSITION</div>
+    <h2>DBS 的區域不是「據點」，而是角色分工</h2>
+    <p>同一張亞洲版圖，不同市場承擔不同功能：資金中心、財富中心、企業走廊、成長市場、規模市場。真正的競爭力來自市場之間能不能互相導流。</p>
+  </div>
+  <table class="market-table">
+    <tr><th>Market</th><th>Strategic Role</th><th>DBS Strength</th><th>What to Observe</th></tr>
+    <tr><td>Singapore</td><td><span class="role">HOME CORE</span></td><td>低成本存款、支付、零售、企業金融、總部科技與風險能力。</td><td>是否仍是全行能力輸出的「作業系統」，而不只是最大獲利市場。</td></tr>
+    <tr><td>Hong Kong</td><td><span class="role">WEALTH HUB</span></td><td>北亞財富與跨境企業金融，與新加坡共同構成雙 wealth booking centres。</td><td>如何承接中國與全球資本的多地配置需求。</td></tr>
+    <tr><td>Taiwan</td><td><span class="role">SCALE + WEALTH</span></td><td>花旗消金併購後，快速獲得客群、卡、存貸與投資規模。</td><td>能否把「買來的規模」轉成「One Bank + Wealth」的深度關係。</td></tr>
+    <tr><td>China</td><td><span class="role">CORRIDOR</span></td><td>企業金融、GBA、新經濟產業與跨境需求。</td><td>地緣政治下，跨境金融能力是否仍能創造差異化。</td></tr>
+    <tr><td>India</td><td><span class="role">GROWTH</span></td><td>digibank + Lakshmi Vilas Bank 後形成數位與實體混合規模。</td><td>如何把科技能力轉成高成長市場的低成本擴張。</td></tr>
+    <tr><td>Indonesia</td><td><span class="role">GROWTH</span></td><td>大型人口市場、數位金融與企業金融成長機會。</td><td>規模擴張與風險定價是否能同步。</td></tr>
+  </table>
+  <div class="asia-map">
+    <h3>DBS Asian Network｜真實地理版圖 × 戰略角色</h3>
+    <div class="map-sub">以實際亞洲地理位置呈現 DBS 六個核心市場；Singapore 為營運核心，連到北亞財富與企業走廊，以及 India / Indonesia 成長市場。</div>
+    <div class="real-map-wrap">
+      <iframe title="DBS Asia real map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=65%2C-10%2C145%2C50&amp;layer=mapnik"></iframe>
+      <div class="map-overlay">
+        <svg viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+          <path class="map-route" d="M545 500 C560 430 650 305 720 245"/>
+          <path class="map-route" d="M545 500 C590 390 735 270 805 245"/>
+          <path class="map-route" d="M545 500 C520 350 555 235 590 190"/>
+          <path class="map-route" d="M545 500 C430 450 310 400 235 360"/>
+          <path class="map-route" d="M545 500 C535 540 520 565 505 585"/>
+        </svg>
+        <div class="map-dot home" style="left:54.5%;top:80.5%"></div><div class="map-label" style="left:54.5%;top:80.5%"><b>Singapore</b><span>Core / HQ / Funding</span></div>
+        <div class="map-dot" style="left:72%;top:39.5%"></div><div class="map-label" style="left:72%;top:39.5%"><b>Hong Kong</b><span>Wealth Hub</span></div>
+        <div class="map-dot" style="left:80.5%;top:39.5%"></div><div class="map-label" style="left:80.5%;top:39.5%"><b>Taiwan</b><span>Scale + Wealth</span></div>
+        <div class="map-dot" style="left:59%;top:30.5%"></div><div class="map-label" style="left:59%;top:30.5%"><b>China</b><span>Corporate Corridor</span></div>
+        <div class="map-dot" style="left:23.5%;t
