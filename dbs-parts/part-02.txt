@@ -1,0 +1,45 @@
+solid rgba(255,255,255,.16);color:#fff;border-radius:10px;padding:7px 9px;font-size:11px;line-height:1.15;white-space:nowrap;box-shadow:0 8px 22px rgba(0,0,0,.2)}
+.map-label b{display:block;font-size:12px}.map-label span{display:block;margin-top:2px;color:#c6d2d8;font-size:9px}
+.map-caption{font-size:12px;line-height:1.55;color:#c4d0d6;margin-top:12px}
+.map-caption b{color:#efb458}
+
+/* PRESSURES */
+.pressure{position:relative;z-index:1;display:grid;gap:11px}
+.pressure-row{display:grid;grid-template-columns:210px 130px 1fr 1.1fr;gap:14px;align-items:center;background:#fff;border:1px solid #ded7ce;border-radius:16px;padding:14px}
+.pressure-row h3{margin:0;font-size:15px}
+.score{font-size:25px;font-weight:950;color:var(--red)}
+.bar{height:8px;background:#eee7e1;border-radius:999px;overflow:hidden;margin-top:5px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#b71914,#ef766e);border-radius:999px}
+.pressure-row p{font-size:12.5px;line-height:1.45;color:#526068;margin:0}
+.response{font-size:12.5px;line-height:1.45;color:#35434b}
+.response b{color:var(--red)}
+.bridge{position:relative;z-index:1;margin-top:16px;background:#26343d;color:#fff;border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.bridge strong{font-size:24px;color:#ff827a}.bridge span{font-size:13px;line-height:1.55}
+
+/* TAIWAN FIT */
+.fit-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:24px}
+.fit-board{background:#fff;border:1px solid #ded7ce;border-radius:24px;padding:20px}
+.fit-board h3{margin:0 0 14px;font-size:22px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.cap-card{min-height:156px;border-radius:18px;padding:16px 15px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(0,0,0,.05)}
+.cap-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}.cap-no{width:32px;height:32px;border-radius:12px;display:grid;place-items:center;background:rgba(0,0,0,.08);font-size:12px;font-weight:950}
+.cap-card b{display:block;font-size:15px;line-height:1.1}.cap-card span{display:block;font-size:11.5px;line-height:1.45;color:#47555d;margin-top:8px}
+.cap-card.p1{background:#f4dedb}.cap-card.p2{background:#e6edf2}.cap-card.p3{background:#e8f0ec}.cap-card.p4{background:#f3ead8}.cap-card.p5{background:#e9e4ef}.cap-card.p6{background:#b71914;color:#fff}.cap-card.p6 span{color:#ffe7e5}.cap-card.p6 .cap-no{background:rgba(255,255,255,.18)}
+.fit-side{background:linear-gradient(155deg,#6f1716,#b71914);color:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column}
+.fit-side .ey{font-size:11px;letter-spacing:.15em;font-weight:950;color:#ffb0aa}
+.fit-side h3{font-size:29px;line-height:1.08;margin:8px 0 12px}
+.fit-side p{font-size:13px;line-height:1.55;color:#f5dedd}
+.fit-side .big{margin-top:auto;border-left:4px solid #ff8e86;padding-left:13px;font-size:14px;line-height:1.5;font-weight:850}
+
+/* MYSTERY */
+.mystery{position:relative;z-index:1;display:grid;grid-template-columns:1fr 220px 1fr;gap:18px}
+.mbox{background:#fff;border:1px solid #ddd6ce;border-radius:20px;padding:20px}
+.mbox h3{margin:0 0 12px;font-size:20px}
+.fact{padding:10px 0;border-bottom:1px solid #eee8e1;font-size:12.5px;line-height:1.5;color:#4b5961}
+.fact b{display:block;color:#26343d;margin-bottom:2px}
+.orb{display:flex;align-items:center;justify-content:center}
+.orb div{width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 32% 27%,#ec4c43,#9f1915 68%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 34px rgba(150,30,24,.22)}
+.orb strong{font-size:58px;line-height:.9}.orb span{font-size:11px;font-weight:900;letter-spacing:.1em;margin-top:10px}
+.mq{position:relative;z-index:1;margin-top:15px;border-left:5px solid var(--red);background:#f2e6e3;border-radius:12px;padding:14px 16px;font-size:14px;font-weight:850;line-height:1.5}
+
+/* BATTLE */
+.battles{position:relativ
