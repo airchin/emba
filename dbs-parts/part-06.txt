@@ -1,0 +1,50 @@
+op:58%"></div><div class="map-label" style="left:23.5%;top:58%"><b>India</b><span>Growth Market</span></div>
+        <div class="map-dot" style="left:50.5%;top:91%"></div><div class="map-label" style="left:50.5%;top:91%"><b>Indonesia</b><span>Growth Market</span></div>
+      </div>
+    </div>
+    <div class="map-caption"><b>核心觀察：</b> DBS 的區域優勢不是「有幾個據點」，而是 Singapore / Hong Kong 的資金與財富能力，能不能和 Taiwan、China、India、Indonesia 的企業與零售客群形成跨境資金流、企業流與財富流。</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="pressure">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">04 • STRATEGIC PRESSURE</div>
+    <h2>成為最佳銀行之後，壓力反而更集中</h2>
+    <p>DBS 的問題不再是「能不能數位化」，而是：在高基期、降息、AI、高監管與跨境複雜度下，如何繼續把優勢拉開。</p>
+  </div>
+  <div class="pressure">
+    <div class="pressure-row"><h3>利率下行 / NIM 壓縮</h3><div><div class="score">90</div><div class="bar"><i style="width:90%"></i></div></div><p>2Q 2026 NIM 降至 1.87%，淨利息收入承壓；傳統銀行最舒服的利差環境正在退潮。</p><div class="response"><b>DBS 回答：</b> Wealth fee、Treasury customer sales、Transaction banking、Capital markets，把收入結構從利差推向 fee-based。</div></div>
+    <div class="pressure-row"><h3>科技韌性 / Trust</h3><div><div class="score">88</div><div class="bar"><i style="width:88%"></i></div></div><p>2023 多次 digital disruption 讓「最佳數位銀行」遭遇品牌悖論：越數位，故障的信任成本越高。</p><div class="response"><b>DBS 回答：</b> technology resiliency roadmap、架構簡化、變更管理、Board Technology Committee。</div></div>
+    <div class="pressure-row"><h3>AI 規模化與治理</h3><div><div class="score">85</div><div class="bar"><i style="width:85%"></i></div></div><p>2,000+ models、430+ use cases 之後，問題從「會不會用 AI」變成模型風險、解釋、資料權限與 agentic control。</p><div class="response"><b>DBS 回答：</b> PURE data ethics、AI governance、DBS-GPT、vertical / horizontal use cases。</div></div>
+    <div class="pressure-row"><h3>亞洲財富競爭</h3><div><div class="score">82</div><div class="bar"><i style="width:82%"></i></div></div><p>新加坡與香港是全球財富中心，全球私人銀行與本地銀行都在搶同一批 HNW / UHNW 客戶。</p><div class="response"><b>DBS 回答：</b> One Bank 把企業主的 business banking 與 personal wealth 串起來，70% HNW 客戶本身就是企業主。</div></div>
+    <div class="pressure-row"><h3>區域規模 / 整合複雜度</h3><div><div class="score">76</div><div class="bar"><i style="width:76%"></i></div></div><p>收購可以買到規模，但不同市場的法規、核心系統、產品與文化都提高營運複雜度。</p><div class="response"><b>DBS 回答：</b> 標準化 capabilities + local execution；台灣是最值得觀察的整合樣本。</div></div>
+  </div>
+  <div class="bridge"><strong>→</strong><span>DBS 下一階段競爭，不是「科技 vs 傳統銀行」，而是 <b>收益結構、科技韌性、AI 治理、跨境協同</b> 能不能同時成立。任何一個掉下來，都會侵蝕「高 ROE + 高信任」的組合。</span></div>
+</div>
+</section>
+
+<section class="section" id="taiwan">
+<div class="panel">
+  <div class="head">
+    <div class="kicker">05 • TAIWAN STRATEGIC FIT</div>
+    <h2>台灣不是分行市場，是 DBS 的「規模轉深度」實驗場</h2>
+    <p>2023 收購花旗台灣消金後，問題已經不再是「有沒有規模」，而是能否把一次性取得的客戶、存款、卡與投資關係，轉化成更高價值的財富與 One Bank 關係。</p>
+  </div>
+  <div class="fit-grid">
+    <div class="fit-board">
+      <h3>DBS 在台灣需要完成的 6 塊能力</h3>
+      <div class="cap-grid">
+        <div class="cap-card p1"><div class="cap-top"><div class="cap-no">01</div><b>Citi Scale</b></div><span>110+ 萬消金客戶、300+ 萬信用卡帳戶，先把市場規模買進來。</span></div>
+        <div class="cap-card p2"><div class="cap-top"><div class="cap-no">02</div><b>Digital Migration</b></div><span>整合後短時間內逾百萬原 Citi 客戶註冊 digibank / Card+。</span></div>
+        <div class="cap-card p3"><div class="cap-top"><div class="cap-no">03</div><b>Wealth Conversion</b></div><span>把信用卡、存款客戶升級為 Treasures / 投資 / 保險 / 高端財富。</span></div>
+        <div class="cap-card p4"><div class="cap-top"><div class="cap-no">04</div><b>Corporate Corridor</b></div><span>台灣企業跨東南亞、印度、中國的供應鏈與 FX / cash management 機會。</span></div>
+        <div class="cap-card p5"><div class="cap-top"><div class="cap-no">05</div><b>Regulatory Edge</b></div><span>高雄資產管理專區等新制度，讓台灣可成為高端財富產品試驗場。</span></div>
+        <div class="cap-card p6"><div class="cap-top"><div class="cap-no">06</div><b>One Bank</b></div><span>企業主本人、企業資金、家族財富、避險與跨境配置真正被同一套關係經營起來。</span></div>
+      </div>
+    </div>
+    <div class="fit-side">
+      <div class="ey">THE REAL QUESTION</div>
+      
